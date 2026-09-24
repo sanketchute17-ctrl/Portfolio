@@ -141,9 +141,9 @@ export function GlassHero() {
       className="relative w-full min-h-[100svh] overflow-hidden bg-transparent select-none animate-hero-entry z-10"
       aria-label="Liquid Glass Interactive Hero"
     >
-      {/* Background Image Layer 1: Base Image (Enlarged 125% Scale) */}
+      {/* Background Image Layer 1: Base Image (Enlarged 140% Scale) */}
       <div className="absolute inset-0 w-full h-full pointer-events-none flex items-end justify-center md:justify-end z-10">
-        <div className="w-full h-full max-h-[105vh] flex items-end justify-center md:justify-end transform scale-110 md:scale-125 origin-bottom md:origin-bottom-right">
+        <div className="w-full h-full max-h-[115vh] flex items-end justify-center md:justify-end transform scale-125 md:scale-140 origin-bottom md:origin-bottom-right">
           <picture className="h-full w-full flex items-end justify-center md:justify-end">
             <source media="(max-width: 767px)" srcSet="/images/Base_image_mobile.png" />
             <img
@@ -160,7 +160,7 @@ export function GlassHero() {
         className="absolute inset-0 w-full h-full pointer-events-none reveal-mask-layer z-20 flex items-end justify-center md:justify-end"
         aria-hidden="true"
       >
-        <div className="w-full h-full max-h-[105vh] flex items-end justify-center md:justify-end transform scale-110 md:scale-125 origin-bottom md:origin-bottom-right">
+        <div className="w-full h-full max-h-[115vh] flex items-end justify-center md:justify-end transform scale-125 md:scale-140 origin-bottom md:origin-bottom-right">
           <picture className="h-full w-full flex items-end justify-center md:justify-end">
             <source media="(max-width: 767px)" srcSet="/images/Reveal_image_mobile.png" />
             <img
@@ -218,16 +218,6 @@ export function GlassHero() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
-        </div>
-
-        {/* Right Side Vertical Editorial Manifesto */}
-        <div className="hidden lg:block absolute right-8 top-[36%] transform -translate-y-1/2 pointer-events-auto animate-manifesto">
-          <div className="flex items-center space-x-4 rotate-90 origin-right">
-            <span className="w-12 h-[1px] bg-slate-300"></span>
-            <p className="font-mono text-[11px] font-medium tracking-[0.25em] text-slate-400 uppercase whitespace-nowrap">
-              BUILDING THE NEXT VERSION IN PUBLIC
-            </p>
-          </div>
         </div>
 
       </div>
