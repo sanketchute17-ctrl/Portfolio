@@ -141,9 +141,9 @@ export function GlassHero() {
       className="relative w-full min-h-[100svh] overflow-hidden bg-slate-50 select-none animate-hero-entry z-10"
       aria-label="Liquid Glass Interactive Hero"
     >
-      {/* Background Image Layer 1: Base Image (Enlarged 140% Scale) */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none flex items-end justify-center md:justify-end z-10">
-        <div className="w-full h-full max-h-[115vh] flex items-end justify-center md:justify-end transform scale-125 md:scale-140 origin-bottom md:origin-bottom-right">
+      {/* Background Image Layer 1: Base Image (Perfectly Proportioned & Aligned) */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none flex items-end justify-center md:justify-end z-10 pt-16 md:pt-20">
+        <div className="w-full h-full max-h-[85vh] md:max-h-[88vh] lg:max-h-[92vh] flex items-end justify-center md:justify-end transform scale-100 md:scale-105 lg:scale-108 origin-bottom md:origin-bottom-right">
           <picture className="h-full w-full flex items-end justify-center md:justify-end">
             <source media="(max-width: 767px)" srcSet="/images/Base_image_mobile.png" />
             <img
@@ -157,10 +157,10 @@ export function GlassHero() {
 
       {/* Background Image Layer 2: Reveal Image (Translucent Liquid Glass) with CSS Masking */}
       <div
-        className="absolute inset-0 w-full h-full pointer-events-none reveal-mask-layer z-20 flex items-end justify-center md:justify-end"
+        className="absolute inset-0 w-full h-full pointer-events-none reveal-mask-layer z-20 flex items-end justify-center md:justify-end pt-16 md:pt-20"
         aria-hidden="true"
       >
-        <div className="w-full h-full max-h-[115vh] flex items-end justify-center md:justify-end transform scale-125 md:scale-140 origin-bottom md:origin-bottom-right">
+        <div className="w-full h-full max-h-[85vh] md:max-h-[88vh] lg:max-h-[92vh] flex items-end justify-center md:justify-end transform scale-100 md:scale-105 lg:scale-108 origin-bottom md:origin-bottom-right">
           <picture className="h-full w-full flex items-end justify-center md:justify-end">
             <source media="(max-width: 767px)" srcSet="/images/Reveal_image_mobile.png" />
             <img
