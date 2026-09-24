@@ -141,15 +141,15 @@ export function GlassHero() {
       className="relative w-full min-h-[100svh] overflow-hidden bg-transparent select-none animate-hero-entry z-10"
       aria-label="Liquid Glass Interactive Hero"
     >
-      {/* Background Image Layer 1: Base Image (Full 100% size) */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none flex items-center justify-center md:justify-end">
-        <div className="w-full h-full max-h-[100vh] flex items-center justify-center md:justify-end transform scale-100 origin-center md:origin-right">
-          <picture className="h-full w-full flex items-center justify-center md:justify-end">
+      {/* Background Image Layer 1: Base Image (Enlarged 125% Scale) */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none flex items-end justify-center md:justify-end z-10">
+        <div className="w-full h-full max-h-[105vh] flex items-end justify-center md:justify-end transform scale-110 md:scale-125 origin-bottom md:origin-bottom-right">
+          <picture className="h-full w-full flex items-end justify-center md:justify-end">
             <source media="(max-width: 767px)" srcSet="/images/Base_image_mobile.png" />
             <img
               src="/images/Base_image_desktop.png"
               alt="Portrait Master Base"
-              className="max-h-full w-auto object-contain object-center md:object-right max-w-full"
+              className="max-h-full w-auto object-contain object-bottom md:object-right-bottom max-w-full"
             />
           </picture>
         </div>
@@ -157,16 +157,16 @@ export function GlassHero() {
 
       {/* Background Image Layer 2: Reveal Image (Translucent Liquid Glass) with CSS Masking */}
       <div
-        className="absolute inset-0 w-full h-full pointer-events-none reveal-mask-layer z-10 flex items-center justify-center md:justify-end"
+        className="absolute inset-0 w-full h-full pointer-events-none reveal-mask-layer z-20 flex items-end justify-center md:justify-end"
         aria-hidden="true"
       >
-        <div className="w-full h-full max-h-[100vh] flex items-center justify-center md:justify-end transform scale-100 origin-center md:origin-right">
-          <picture className="h-full w-full flex items-center justify-center md:justify-end">
+        <div className="w-full h-full max-h-[105vh] flex items-end justify-center md:justify-end transform scale-110 md:scale-125 origin-bottom md:origin-bottom-right">
+          <picture className="h-full w-full flex items-end justify-center md:justify-end">
             <source media="(max-width: 767px)" srcSet="/images/Reveal_image_mobile.png" />
             <img
               src="/images/Reveal_image_desktop.png"
               alt="Portrait Master Liquid Glass Reveal"
-              className="max-h-full w-auto object-contain object-center md:object-right max-w-full"
+              className="max-h-full w-auto object-contain object-bottom md:object-right-bottom max-w-full"
             />
           </picture>
         </div>

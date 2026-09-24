@@ -30,9 +30,9 @@ export function DataStreamBg() {
     updateSize();
     window.addEventListener('resize', updateSize);
 
-    // Ultra-light, elegant parameters
-    const linesCount = 10;
-    const particlesCount = 35;
+    // Balanced visibility & slow graceful motion
+    const linesCount = 16;
+    const particlesCount = 55;
 
     interface Particle {
       xRatio: number;
@@ -50,9 +50,9 @@ export function DataStreamBg() {
       particles.push({
         xRatio: Math.random(),
         lineIdx: Math.floor(Math.random() * linesCount),
-        speed: 0.00015 + Math.random() * 0.00035, // Ultra slow speed
-        size: 1.8 + Math.random() * 2.2,
-        alpha: 0.12 + Math.random() * 0.20, // Very soft opacity
+        speed: 0.0002 + Math.random() * 0.0004, // Slow motion speed
+        size: 2.0 + Math.random() * 2.8,
+        alpha: 0.25 + Math.random() * 0.35, // Balanced clear visibility
         colorType,
       });
     }
@@ -68,56 +68,59 @@ export function DataStreamBg() {
     let t = 0;
     const render = () => {
       t += 0.0012; // Slow animation tick
-      currentScrollY += (targetScrollY - currentScrollY) * 0.06;
+      currentScrollY += (targetScrollY - currentScrollY) * 0.07;
 
       ctx.save();
       ctx.scale(dpr, dpr);
       ctx.clearRect(0, 0, width, height);
 
-      // Render 10 ultra-subtle flowing stream curves behind content
+      // Render 16 clearly visible flowing stream curves behind content
       for (let i = 0; i < linesCount; i++) {
         ctx.beginPath();
         const baseOffset = (height / (linesCount - 1)) * i;
-        const scrollFactor = (currentScrollY * 0.25) % height;
+        const scrollFactor = (currentScrollY * 0.3) % height;
         const yPos = (baseOffset - scrollFactor + height * 4) % height;
 
-        // Soft, gentle flowing Bezier anchors
-        const cp1x = width * 0.3 + Math.sin(t * 0.5 + i * 0.4) * 90;
-        const cp1y = yPos - 80 + Math.cos(t * 0.4 + i * 0.3) * 50;
-        const cp2x = width * 0.7 + Math.cos(t * 0.4 + i * 0.4) * 90;
-        const cp2y = yPos + 80 + Math.sin(t * 0.3 + i * 0.5) * 50;
+        // Dynamic Bezier anchors
+        const cp1x = width * 0.28 + Math.sin(t * 0.6 + i * 0.5) * 110;
+        const cp1y = yPos - 90 + Math.cos(t * 0.5 + i * 0.4) * 65;
+        const cp2x = width * 0.72 + Math.cos(t * 0.5 + i * 0.5) * 110;
+        const cp2y = yPos + 90 + Math.sin(t * 0.4 + i * 0.6) * 65;
 
-        ctx.moveTo(-80, yPos);
-        ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, width + 80, yPos + 40);
+        ctx.moveTo(-90, yPos);
+        ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, width + 90, yPos + 50);
 
         const isGreen = i % 3 === 0;
+        const isTeal = i % 4 === 0;
 
-        const grad = ctx.createLinearGradient(0, yPos, width, yPos + 40);
-        grad.addColorStop(0, 'rgba(6, 182, 212, 0.01)');
+        const grad = ctx.createLinearGradient(0, yPos, width, yPos + 50);
+        grad.addColorStop(0, 'rgba(6, 182, 212, 0.02)');
         grad.addColorStop(
           0.5,
           isGreen
-            ? 'rgba(16, 185, 129, 0.14)'
-            : 'rgba(6, 182, 212, 0.12)'
+            ? 'rgba(16, 185, 129, 0.32)'
+            : isTeal
+            ? 'rgba(20, 184, 166, 0.30)'
+            : 'rgba(6, 182, 212, 0.28)'
         );
-        grad.addColorStop(1, 'rgba(6, 182, 212, 0.01)');
+        grad.addColorStop(1, 'rgba(6, 182, 212, 0.02)');
 
         ctx.strokeStyle = grad;
-        ctx.lineWidth = 1.2;
+        ctx.lineWidth = isGreen ? 2.0 : 1.5;
         ctx.stroke();
       }
 
-      // Render floating micro data particles
+      // Render floating glowing micro data particles
       particles.forEach((p) => {
         p.xRatio += p.speed;
         if (p.xRatio > 1) p.xRatio = 0;
 
         const baseOffset = (height / (linesCount - 1)) * p.lineIdx;
-        const scrollFactor = (currentScrollY * 0.25) % height;
+        const scrollFactor = (currentScrollY * 0.3) % height;
         const yPos = (baseOffset - scrollFactor + height * 4) % height;
 
         const pX = p.xRatio * width;
-        const wave = Math.sin(p.xRatio * Math.PI * 2 + t * 1.5 + p.lineIdx) * 40;
+        const wave = Math.sin(p.xRatio * Math.PI * 2 + t * 1.8 + p.lineIdx) * 45;
         const pY = yPos + wave;
 
         const mainColor =
@@ -127,7 +130,22 @@ export function DataStreamBg() {
             ? `rgba(20, 184, 166, ${p.alpha})`
             : `rgba(6, 182, 212, ${p.alpha})`;
 
-        // Core micro particle dot
+        const glowColor =
+          p.colorType === 'emerald'
+            ? `rgba(16, 185, 129, ${p.alpha * 0.25})`
+            : `rgba(6, 182, 212, ${p.alpha * 0.25})`;
+
+        // Outer radial halo glow
+        const glowGrad = ctx.createRadialGradient(pX, pY, 0, pX, pY, p.size * 2.8);
+        glowGrad.addColorStop(0, glowColor);
+        glowGrad.addColorStop(1, 'rgba(6, 182, 212, 0)');
+
+        ctx.beginPath();
+        ctx.arc(pX, pY, p.size * 2.8, 0, Math.PI * 2);
+        ctx.fillStyle = glowGrad;
+        ctx.fill();
+
+        // Core particle dot
         ctx.beginPath();
         ctx.arc(pX, pY, p.size, 0, Math.PI * 2);
         ctx.fillStyle = mainColor;
