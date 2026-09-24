@@ -55,6 +55,12 @@ export function Navbar() {
             Experience
           </Link>
           <Link
+            href="#certifications"
+            className="hover:text-slate-900 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded px-1"
+          >
+            Certifications
+          </Link>
+          <Link
             href="#process"
             className="hover:text-slate-900 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded px-1"
           >
