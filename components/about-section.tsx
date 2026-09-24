@@ -4,7 +4,7 @@ import React from 'react';
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 md:py-36 bg-white/15 border-t border-slate-200/40 relative z-10">
+    <section id="about" className="py-24 md:py-36 bg-white border-t border-slate-200/40 relative z-10">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
           

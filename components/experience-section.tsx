@@ -73,7 +73,7 @@ export function ExperienceSection() {
   };
 
   return (
-    <section id="experience" className="py-24 md:py-36 bg-white/15 border-t border-slate-200/40 relative z-10">
+    <section id="experience" className="py-24 md:py-36 bg-white border-t border-slate-200/40 relative z-10">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* Section Header */}

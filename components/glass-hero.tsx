@@ -138,7 +138,7 @@ export function GlassHero() {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       onTouchCancel={handleTouchEnd}
-      className="relative w-full min-h-[100svh] overflow-hidden bg-transparent select-none animate-hero-entry z-10"
+      className="relative w-full min-h-[100svh] overflow-hidden bg-slate-50 select-none animate-hero-entry z-10"
       aria-label="Liquid Glass Interactive Hero"
     >
       {/* Background Image Layer 1: Base Image (Enlarged 140% Scale) */}

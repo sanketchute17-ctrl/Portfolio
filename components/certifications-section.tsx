@@ -54,7 +54,7 @@ export function CertificationsSection() {
     : certificationsData.filter((c) => c.category === activeTab);
 
   return (
-    <section id="certifications" className="py-24 md:py-36 bg-slate-50/15 border-t border-slate-200/40 relative z-10">
+    <section id="certifications" className="py-24 md:py-36 bg-slate-50 border-t border-slate-200/40 relative z-10">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* Section Header */}
