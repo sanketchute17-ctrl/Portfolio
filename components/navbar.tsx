@@ -61,16 +61,16 @@ export function Navbar() {
             Certifications
           </Link>
           <Link
+            href="#skills"
+            className="hover:text-slate-900 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded px-1"
+          >
+            Skills
+          </Link>
+          <Link
             href="#process"
             className="hover:text-slate-900 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded px-1"
           >
             Process
-          </Link>
-          <Link
-            href="#experiments"
-            className="hover:text-slate-900 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded px-1"
-          >
-            Experiments
           </Link>
         </nav>
 
