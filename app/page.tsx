@@ -10,10 +10,12 @@ import { ExperimentsSection } from '@/components/experiments-section';
 import { ContactSection } from '@/components/contact-section';
 import { Footer } from '@/components/footer';
 import { SocialDock } from '@/components/social-dock';
+import { DataStreamBg } from '@/components/data-stream-bg';
 
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-slate-50">
+      <DataStreamBg />
       <Navbar />
       <GlassHero />
       <AboutSection />
