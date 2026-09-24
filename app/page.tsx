@@ -2,6 +2,7 @@ import { Navbar } from '@/components/navbar';
 import { GlassHero } from '@/components/glass-hero';
 import { AboutSection } from '@/components/about-section';
 import { WorkSection } from '@/components/work-section';
+import { ExperienceSection } from '@/components/experience-section';
 import { ProcessSection } from '@/components/process-section';
 import { ExperimentsSection } from '@/components/experiments-section';
 import { ContactSection } from '@/components/contact-section';
@@ -14,6 +15,7 @@ export default function Home() {
       <GlassHero />
       <AboutSection />
       <WorkSection />
+      <ExperienceSection />
       <ProcessSection />
       <ExperimentsSection />
       <ContactSection />
