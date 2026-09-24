@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { AISandbox } from './ai-sandbox';
 
 export function ExperimentsSection() {
   return (
@@ -9,15 +10,20 @@ export function ExperimentsSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
           <div>
             <span className="font-mono text-xs font-semibold uppercase tracking-widest text-cyan-400 block mb-3">
-              04 // R&D Lab
+              06 // R&amp;D Interactive Lab
             </span>
             <h2 className="font-sans text-3xl md:text-5xl font-extrabold text-white tracking-tight">
-              Micro Experiments.
+              Micro Experiments &amp; AI Playground.
             </h2>
           </div>
           <p className="font-mono text-xs text-slate-400 uppercase tracking-widest mt-4 md:mt-0">
-            [ REALTIME WEBGPU & SHADERS ]
+            [ REALTIME WEBGPU &amp; AGENT SHADERS ]
           </p>
+        </div>
+
+        {/* Live Interactive AI Sandbox */}
+        <div className="mb-12">
+          <AISandbox />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

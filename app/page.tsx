@@ -9,6 +9,7 @@ import { ProcessSection } from '@/components/process-section';
 import { ExperimentsSection } from '@/components/experiments-section';
 import { ContactSection } from '@/components/contact-section';
 import { Footer } from '@/components/footer';
+import { SocialDock } from '@/components/social-dock';
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <ExperimentsSection />
       <ContactSection />
       <Footer />
+      <SocialDock />
     </main>
   );
 }
