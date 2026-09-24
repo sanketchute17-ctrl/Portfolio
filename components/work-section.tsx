@@ -90,7 +90,7 @@ export function WorkSection() {
     : projectsData.filter((p) => p.category === activeTab);
 
   return (
-    <section id="work" className="py-24 md:py-36 bg-slate-50 relative">
+    <section id="work" className="py-24 md:py-36 bg-slate-50/70 backdrop-blur-md border-t border-slate-200/50 relative z-10">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* Section Header */}
