@@ -79,7 +79,7 @@ export function ExperienceSection() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
           <div>
-            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-cyan-600 block mb-3">
+            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-orange-600 block mb-3">
               03 // Career &amp; Internships
             </span>
             <h2 className="font-sans text-3xl md:text-5xl font-extrabold text-slate-950 tracking-tight">
@@ -98,14 +98,14 @@ export function ExperienceSection() {
             return (
               <div key={exp.id} className="relative group">
                 {/* Timeline Dot Node */}
-                <div className="absolute -left-[31px] md:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-white border-4 border-cyan-500 shadow-md group-hover:scale-125 group-hover:border-cyan-600 transition-all duration-200" />
+                <div className="absolute -left-[31px] md:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-white border-4 border-orange-500 shadow-md group-hover:scale-125 group-hover:border-orange-600 transition-all duration-200" />
 
                 {/* Content Card */}
-                <div className="glass-panel p-6 md:p-8 rounded-3xl transition-all duration-300 hover:border-cyan-300 hover:shadow-xl hover:shadow-cyan-500/5">
+                <div className="glass-panel p-6 md:p-8 rounded-3xl transition-all duration-300 hover:border-orange-300 hover:shadow-xl hover:shadow-orange-500/5">
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
                     <div>
                       <div className="flex flex-wrap items-center gap-2 mb-1">
-                        <span className="font-mono text-[11px] font-bold text-cyan-700 bg-cyan-100/80 px-2.5 py-0.5 rounded-full uppercase">
+                        <span className="font-mono text-[11px] font-bold text-orange-800 bg-orange-100/80 px-2.5 py-0.5 rounded-full uppercase">
                           {exp.type}
                         </span>
                         <span className="font-mono text-[11px] text-slate-500">
@@ -115,7 +115,7 @@ export function ExperienceSection() {
                       <h3 className="text-xl md:text-2xl font-bold text-slate-950">
                         {exp.role}
                       </h3>
-                      <p className="text-sm font-semibold text-cyan-600">
+                      <p className="text-sm font-semibold text-orange-600">
                         {exp.company}
                       </p>
                     </div>
@@ -149,7 +149,7 @@ export function ExperienceSection() {
                       </h4>
                       <ul className="space-y-2 list-disc list-inside text-slate-700 leading-relaxed">
                         {exp.highlights.map((h, i) => (
-                          <li key={i} className="marker:text-cyan-500">
+                          <li key={i} className="marker:text-orange-500">
                             {h}
                           </li>
                         ))}
@@ -169,7 +169,7 @@ export function ExperienceSection() {
 
                     <button
                       onClick={() => toggleExpand(exp.id)}
-                      className="text-xs font-semibold font-mono uppercase text-slate-700 hover:text-cyan-600 transition-colors flex items-center space-x-1 self-start sm:self-auto"
+                      className="text-xs font-semibold font-mono uppercase text-slate-700 hover:text-orange-600 transition-colors flex items-center space-x-1 self-start sm:self-auto"
                     >
                       <span>{isExpanded ? 'Hide Details' : 'View Full Highlights'}</span>
                       <svg

@@ -64,7 +64,7 @@ export function SkillsSection() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
           <div>
-            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-cyan-600 block mb-3">
+            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-orange-600 block mb-3">
               05 // Engineering Proficiency
             </span>
             <h2 className="font-sans text-3xl md:text-5xl font-extrabold text-slate-950 tracking-tight">
@@ -75,7 +75,7 @@ export function SkillsSection() {
           {/* Resume Viewer CTA Button */}
           <button
             onClick={() => setShowResumeModal(true)}
-            className="mt-6 md:mt-0 inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-slate-950 text-white font-semibold text-xs md:text-sm tracking-wide uppercase shadow-lg shadow-slate-950/10 hover:bg-cyan-600 transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-500 w-fit"
+            className="mt-6 md:mt-0 inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-slate-950 text-white font-semibold text-xs md:text-sm tracking-wide uppercase shadow-lg shadow-slate-950/10 hover:bg-orange-600 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 w-fit"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -107,13 +107,13 @@ export function SkillsSection() {
                     {/* Progress Bar */}
                     <div className="w-full h-2 rounded-full bg-slate-100 overflow-hidden">
                       <div
-                        className="h-full bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full transition-all duration-1000"
+                        className="h-full bg-gradient-to-r from-orange-500 via-amber-500 to-orange-400 rounded-full transition-all duration-1000"
                         style={{ width: `${skill.level}%` }}
                       />
                     </div>
 
                     {/* Applied In footnote */}
-                    <p className="text-[10px] font-mono text-slate-400 group-hover:text-cyan-600 transition-colors">
+                    <p className="text-[10px] font-mono text-slate-400 group-hover:text-orange-600 transition-colors">
                       Applied in: {skill.appliedIn}
                     </p>
                   </div>
@@ -138,7 +138,7 @@ export function SkillsSection() {
               </svg>
             </button>
 
-            <span className="font-mono text-xs font-bold text-cyan-600 bg-cyan-50 px-3 py-1 rounded-full border border-cyan-200 uppercase tracking-wider block w-fit mb-4">
+            <span className="font-mono text-xs font-bold text-orange-600 bg-orange-50 px-3 py-1 rounded-full border border-orange-200 uppercase tracking-wider block w-fit mb-4">
               Official Resume Document
             </span>
 
@@ -150,7 +150,7 @@ export function SkillsSection() {
               <p className="text-xs font-mono text-slate-600 mb-3">
                 sanketchute17@gmail.com | +91 9309054279 | Nagpur, Open to Relocation
               </p>
-              <div className="flex gap-4 text-xs font-mono text-cyan-600">
+              <div className="flex gap-4 text-xs font-mono text-orange-600">
                 <a href="https://github.com/sanketchute17-ctrl" target="_blank" rel="noopener noreferrer" className="hover:underline">GitHub: github.com/sanketchute17-ctrl</a>
                 <span>•</span>
                 <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:underline">LinkedIn</a>

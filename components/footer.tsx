@@ -18,16 +18,16 @@ export function Footer() {
 
         {/* Quick Social & Important Links */}
         <div className="flex flex-wrap gap-6 font-mono text-xs text-slate-300">
-          <a href="https://github.com/sanketchute17-ctrl" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors">
+          <a href="https://github.com/sanketchute17-ctrl" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">
             GitHub
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors">
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">
             LinkedIn
           </a>
-          <a href="mailto:sanketchute17@gmail.com" className="hover:text-cyan-400 transition-colors">
+          <a href="mailto:sanketchute17@gmail.com" className="hover:text-orange-400 transition-colors">
             sanketchute17@gmail.com
           </a>
-          <a href="tel:+919309054279" className="hover:text-cyan-400 transition-colors">
+          <a href="tel:+919309054279" className="hover:text-orange-400 transition-colors">
             +91 9309054279
           </a>
         </div>

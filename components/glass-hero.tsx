@@ -190,7 +190,7 @@ export function GlassHero() {
             }}
           >
             <span className="block animate-line-1">BUILDING</span>
-            <span className="block animate-line-2 text-transparent bg-clip-text bg-gradient-to-r from-slate-950 via-slate-800 to-cyan-950">
+            <span className="block animate-line-2 text-transparent bg-clip-text bg-gradient-to-r from-slate-950 via-orange-600 to-amber-500">
               INTELLIGENT
             </span>
             <span className="block animate-line-3">PRODUCTS.</span>
@@ -200,17 +200,17 @@ export function GlassHero() {
         {/* Bottom Left Supporting Copy & Secondary CTA */}
         <div className="mt-auto pt-48 md:pt-0 max-w-md animate-sub-text pointer-events-auto">
           <p className="text-sm md:text-base text-slate-600 font-normal leading-relaxed mb-6">
-            I build useful products, experiment with emerging technology, and turn the process into stories worth sharing.
+            B.Tech AI Engineer building intelligent machine learning systems, Gemini AI campus apps, and automated placement management tools.
           </p>
           <Link
             href="#work"
-            className="inline-flex items-center space-x-3 text-xs md:text-sm font-semibold tracking-wider text-slate-900 uppercase group focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded p-1"
+            className="inline-flex items-center space-x-3 text-xs md:text-sm font-bold tracking-wider text-slate-950 uppercase group focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded p-1"
           >
-            <span className="border-b-2 border-slate-900 group-hover:border-cyan-500 transition-colors pb-0.5">
+            <span className="border-b-2 border-slate-950 group-hover:border-orange-500 transition-colors pb-0.5">
               Explore my work
             </span>
             <svg
-              className="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-cyan-600"
+              className="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-orange-500"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

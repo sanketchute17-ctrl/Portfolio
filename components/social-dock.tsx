@@ -4,9 +4,8 @@ import React, { useState } from 'react';
 
 const socialLinks = [
   { name: 'GitHub', url: 'https://github.com/sanketchute17-ctrl', icon: '🐙', label: 'sanketchute17-ctrl' },
+  { name: 'LinkedIn', url: 'https://linkedin.com', icon: '💼', label: 'in/sanketchute' },
   { name: 'Twitter / X', url: 'https://x.com', icon: '𝕏', label: '@sanketchute' },
-  { name: 'LinkedIn', url: 'https://linkedin.com', icon: '💼', label: 'in/sanket-chute' },
-  { name: 'LeetCode', url: 'https://leetcode.com', icon: '🧩', label: 'sanket_code' },
   { name: 'Email', url: 'mailto:sanketchute17@gmail.com', icon: '✉️', label: 'sanketchute17@gmail.com' },
 ];
 
@@ -29,7 +28,7 @@ export function SocialDock() {
             target="_blank"
             rel="noopener noreferrer"
             title={`${item.name}: ${item.label}`}
-            className="p-2 rounded-full hover:bg-slate-100 text-slate-700 hover:text-cyan-600 transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-500 relative group"
+            className="p-2 rounded-full hover:bg-slate-100 text-slate-700 hover:text-orange-600 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 relative group"
           >
             <span className="text-base">{item.icon}</span>
             {/* Tooltip */}
@@ -43,7 +42,7 @@ export function SocialDock() {
 
         <button
           onClick={handleCopyEmail}
-          className="px-3 py-1 text-xs font-mono font-semibold text-slate-900 bg-slate-100 hover:bg-cyan-50 hover:text-cyan-700 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-500"
+          className="px-3.5 py-1 text-xs font-mono font-bold text-slate-950 bg-orange-100/80 hover:bg-orange-500 hover:text-white rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500"
         >
           {copied ? '✓ Copied' : 'Copy Email'}
         </button>

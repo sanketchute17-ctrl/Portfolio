@@ -9,7 +9,7 @@ export function AboutSection() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
           
           <div className="md:col-span-4">
-            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-cyan-600 block mb-3">
+            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-orange-600 block mb-3">
               01 // Professional Profile
             </span>
             <h2 className="font-sans text-3xl md:text-4xl font-extrabold text-slate-950 tracking-tight leading-tight">
@@ -32,12 +32,12 @@ export function AboutSection() {
               <div>
                 <h3 className="font-mono text-xs uppercase tracking-wider text-slate-400 mb-1">Education</h3>
                 <p className="font-sans font-bold text-slate-900 text-sm md:text-base">B.Tech AI (2027)</p>
-                <p className="text-xs text-cyan-600 font-mono font-semibold">8.2 CGPA</p>
+                <p className="text-xs text-orange-600 font-mono font-semibold">8.2 CGPA</p>
               </div>
               <div>
                 <h3 className="font-mono text-xs uppercase tracking-wider text-slate-400 mb-1">Diploma</h3>
                 <p className="font-sans font-bold text-slate-900 text-sm md:text-base">CSE Diploma (2024)</p>
-                <p className="text-xs text-cyan-600 font-mono font-semibold">81% Score</p>
+                <p className="text-xs text-orange-600 font-mono font-semibold">81% Score</p>
               </div>
               <div>
                 <h3 className="font-mono text-xs uppercase tracking-wider text-slate-400 mb-1">Core Tech</h3>

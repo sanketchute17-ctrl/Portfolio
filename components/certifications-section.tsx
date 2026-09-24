@@ -60,7 +60,7 @@ export function CertificationsSection() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
-            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-cyan-600 block mb-3">
+            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-orange-600 block mb-3">
               04 // Credentials &amp; Verification
             </span>
             <h2 className="font-sans text-3xl md:text-5xl font-extrabold text-slate-950 tracking-tight">
@@ -88,7 +88,7 @@ export function CertificationsSection() {
             onClick={() => setActiveTab('ai')}
             className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide uppercase transition-all duration-200 ${
               activeTab === 'ai'
-                ? 'bg-slate-950 text-white shadow-md ring-2 ring-cyan-500'
+                ? 'bg-slate-950 text-white shadow-md ring-2 ring-orange-500'
                 : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200/80'
             }`}
           >
@@ -98,7 +98,7 @@ export function CertificationsSection() {
             onClick={() => setActiveTab('cloud')}
             className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide uppercase transition-all duration-200 ${
               activeTab === 'cloud'
-                ? 'bg-slate-950 text-white shadow-md ring-2 ring-cyan-500'
+                ? 'bg-slate-950 text-white shadow-md ring-2 ring-orange-500'
                 : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200/80'
             }`}
           >
@@ -108,7 +108,7 @@ export function CertificationsSection() {
             onClick={() => setActiveTab('web')}
             className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide uppercase transition-all duration-200 ${
               activeTab === 'web'
-                ? 'bg-slate-950 text-white shadow-md ring-2 ring-cyan-500'
+                ? 'bg-slate-950 text-white shadow-md ring-2 ring-orange-500'
                 : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200/80'
             }`}
           >
@@ -122,25 +122,25 @@ export function CertificationsSection() {
             <div
               key={cert.id}
               onClick={() => setSelectedCert(cert)}
-              className={`glass-panel p-8 rounded-3xl group hover:border-cyan-400 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/5 cursor-pointer flex flex-col justify-between bg-gradient-to-br ${cert.badgeColor}`}
+              className={`glass-panel p-8 rounded-3xl group hover:border-orange-400 transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/5 cursor-pointer flex flex-col justify-between bg-gradient-to-br ${cert.badgeColor}`}
             >
               <div>
                 <div className="flex items-center justify-between gap-3 mb-4">
-                  <span className="font-mono text-[11px] font-bold text-cyan-700 bg-cyan-100/80 px-3 py-1 rounded-full border border-cyan-300/60 uppercase">
+                  <span className="font-mono text-[11px] font-bold text-orange-800 bg-orange-100/80 px-3 py-1 rounded-full border border-orange-300/60 uppercase">
                     {cert.categoryLabel}
                   </span>
-                  <span className="font-mono text-[11px] font-semibold text-emerald-700 bg-emerald-100/80 px-2.5 py-0.5 rounded-full flex items-center space-x-1">
-                    <svg className="w-3 h-3 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                  <span className="font-mono text-[11px] font-semibold text-amber-800 bg-amber-100/80 px-2.5 py-0.5 rounded-full flex items-center space-x-1">
+                    <svg className="w-3 h-3 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <span>Verified</span>
                   </span>
                 </div>
 
-                <h3 className="text-xl md:text-2xl font-bold text-slate-950 group-hover:text-cyan-600 transition-colors mb-2">
+                <h3 className="text-xl md:text-2xl font-bold text-slate-950 group-hover:text-orange-600 transition-colors mb-2">
                   {cert.title}
                 </h3>
-                <p className="text-xs font-semibold text-cyan-600 mb-1">
+                <p className="text-xs font-semibold text-orange-600 mb-1">
                   Issued by {cert.issuer}
                 </p>
                 <p className="text-[11px] font-mono text-slate-400 mb-4">
@@ -166,7 +166,7 @@ export function CertificationsSection() {
                   )}
                 </div>
 
-                <span className="text-xs font-semibold font-mono text-slate-900 group-hover:text-cyan-600 uppercase flex items-center space-x-1">
+                <span className="text-xs font-bold font-mono text-slate-950 group-hover:text-orange-600 uppercase flex items-center space-x-1">
                   <span>Inspect</span>
                   <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
