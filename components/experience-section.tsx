@@ -18,50 +18,50 @@ interface Experience {
 const experiences: Experience[] = [
   {
     id: 'exp-1',
-    role: 'Software Engineering Intern — AI & Systems',
-    company: 'Apex AI Labs',
-    period: 'Jan 2026 — Present',
+    role: 'Machine Learning Intern',
+    company: 'CodeAlpha',
+    period: 'Feb 2026 — Mar 2026',
     location: 'Remote',
     type: 'Internship',
-    summary: 'Architected high-throughput AI agent pipelines and real-time streaming backend microservices.',
+    summary: 'Built production-grade machine learning and deep learning models for predictive analytics and computer vision tasks.',
     highlights: [
-      'Engineered multi-agent LLM workflow orchestrator using Python and LangChain, processing over 100k daily prompt requests.',
-      'Reduced average agent latency from 240ms to 85ms by introducing Redis caching and asynchronous stream handlers.',
-      'Built custom Next.js 15 analytics dashboards with live WebSocket streaming for monitoring model performance metrics.'
+      'Built machine learning and deep learning models for accurate prediction and image recognition tasks.',
+      'Implemented end-to-end data preprocessing, feature engineering, model training, and performance evaluation using Python-based ML libraries.',
+      'Utilized Scikit-learn and TensorFlow for model architectures and deployed interactive web applications using Streamlit.'
     ],
-    metrics: ['⚡ -64% Latency Reduction', '📈 100k+ Daily Requests', '🚀 Sub-90ms Processing'],
-    skills: ['Next.js 15', 'Python', 'LangChain', 'Redis', 'Docker', 'FastAPI']
+    metrics: ['🤖 Predictive ML & Vision', '📊 Data Preprocessing', '🌐 Streamlit Deployment'],
+    skills: ['Python', 'Scikit-learn', 'TensorFlow', 'Streamlit', 'Git']
   },
   {
     id: 'exp-2',
-    role: 'Full Stack & Creative Developer Fellow',
-    company: 'Nexus Creative Studio',
-    period: 'Jun 2025 — Dec 2025',
-    location: 'Hybrid',
-    type: 'Fellowship',
-    summary: 'Developed interactive web applications, high-performance UI systems, and custom math-driven animation engines.',
+    role: 'B.Tech Student & AI Software Lead',
+    company: 'G. H. Raisoni College of Engineering and Management',
+    period: '2024 — 2027 (Expected)',
+    location: 'Nagpur, MH',
+    type: 'B.Tech Artificial Intelligence',
+    summary: 'Specializing in Artificial Intelligence, Machine Learning algorithms, Data Structures (DSA), and Full-Stack Web Systems.',
     highlights: [
-      'Designed and delivered 6+ client web applications with 100% Google Lighthouse performance scores.',
-      'Implemented zero-latency cursor reveal masks and CSS shader interactions for premium tech brand landing pages.',
-      'Standardized component library using Tailwind CSS and TypeScript, cutting frontend feature development time by 35%.'
+      'Achieved 8.2 CGPA in B.Tech Artificial Intelligence coursework.',
+      'Architected RAISONI-PEERSPACE campus community platform integrated with Google Gemini AI.',
+      'Engineered PlaceTrack AI placement management system with automated ATS resume screening and Supabase PostgreSQL.'
     ],
-    metrics: ['💯 100/100 Lighthouse Score', '⚡ 60 FPS Locked UI', '🛠️ 35% Faster Dev Velocity'],
-    skills: ['React 19', 'TypeScript', 'Tailwind CSS', 'Next.js', 'Figma', 'Web Vitals']
+    metrics: ['🎓 8.2 CGPA Score', '🚀 2 Real-World Products', '💡 Gemini AI & ATS Lead'],
+    skills: ['Python', 'SQL', 'React.js', 'Node.js', 'Express.js', 'Firebase', 'Supabase', 'PostgreSQL']
   },
   {
     id: 'exp-3',
-    role: 'Open Source Contributor & AI Researcher',
-    company: 'Autonomous Systems Guild',
-    period: 'Jan 2025 — May 2025',
-    location: 'Remote',
-    type: 'Open Source / R&D',
-    summary: 'Contributed core features and performance optimizations to open-source agent frameworks and vector database tools.',
+    role: 'Diploma in Computer Science & Engineering',
+    company: 'Wainganga College of Engineering and Management',
+    period: '2021 — 2024',
+    location: 'Nagpur, MH',
+    type: 'Diploma CSE',
+    summary: 'Graduated with 81% distinction score, building strong core foundations in computer science, algorithms, and software development.',
     highlights: [
-      'Authored PRs for vector index retrieval optimizations, enhancing nearest-neighbor search speed by 25%.',
-      'Collaborated with global developer community to document best practices for agentic workflow state management.'
+      'Completed Diploma with 81% overall academic score.',
+      'Mastered Object-Oriented Programming (OOP), Relational Databases (SQL), Web Technologies (HTML/CSS/JS), and Operating Systems fundamentals.'
     ],
-    metrics: ['⭐ 500+ GitHub Stars', '⚡ +25% Retrieval Speed', '🤝 12 PRs Merged'],
-    skills: ['Python', 'PyTorch', 'ChromaDB', 'Vector Search', 'Git', 'CI/CD']
+    metrics: ['🏆 81% First Class Score', '💻 CS Core Fundamentals', '⚡ Software Architecture'],
+    skills: ['C/C++', 'Java', 'SQL', 'HTML/CSS', 'JavaScript', 'DBMS']
   }
 ];
 
@@ -80,14 +80,14 @@ export function ExperienceSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
           <div>
             <span className="font-mono text-xs font-semibold uppercase tracking-widest text-cyan-600 block mb-3">
-              03 // Career Trajectory
+              03 // Career &amp; Internships
             </span>
             <h2 className="font-sans text-3xl md:text-5xl font-extrabold text-slate-950 tracking-tight">
-              Experience &amp; Internships.
+              Internship &amp; Experience.
             </h2>
           </div>
           <p className="font-mono text-xs text-slate-500 uppercase tracking-widest mt-4 md:mt-0">
-            [ Proven Industry Track Record ]
+            [ Verified Industry &amp; Academic Milestones ]
           </p>
         </div>
 
@@ -145,7 +145,7 @@ export function ExperienceSection() {
                   {isExpanded && (
                     <div className="pt-4 border-t border-slate-100 space-y-3 text-xs md:text-sm text-slate-600 animate-hero-entry mb-6">
                       <h4 className="font-mono text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                        Key Engineering Impact:
+                        Key Responsibilities &amp; Achievement Highlights:
                       </h4>
                       <ul className="space-y-2 list-disc list-inside text-slate-700 leading-relaxed">
                         {exp.highlights.map((h, i) => (
@@ -171,7 +171,7 @@ export function ExperienceSection() {
                       onClick={() => toggleExpand(exp.id)}
                       className="text-xs font-semibold font-mono uppercase text-slate-700 hover:text-cyan-600 transition-colors flex items-center space-x-1 self-start sm:self-auto"
                     >
-                      <span>{isExpanded ? 'Hide Details' : 'Read Full Impact'}</span>
+                      <span>{isExpanded ? 'Hide Details' : 'View Full Highlights'}</span>
                       <svg
                         className={`w-4 h-4 transform transition-transform ${isExpanded ? 'rotate-180' : ''}`}
                         fill="none"

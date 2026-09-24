@@ -16,34 +16,33 @@ interface SkillCategory {
 
 const skillCategories: SkillCategory[] = [
   {
-    title: 'AI & Autonomous Agent Systems',
-    description: 'Specialized in multi-agent orchestration, vector embeddings, and LLM tool calling.',
+    title: 'Core AI & Machine Learning',
+    description: 'Specialized in Machine Learning models, Natural Language Processing (NLP), and Prompt Engineering.',
     skills: [
-      { name: 'Python', level: 95, experience: '3+ yrs', icon: '🐍', appliedIn: 'Aura AI & Agent Workflows' },
-      { name: 'LangChain & LangGraph', level: 90, experience: '2 yrs', icon: '🦜', appliedIn: 'Multi-Agent Orchestrator' },
-      { name: 'Vector DBs (Chroma/Pinecone)', level: 88, experience: '2 yrs', icon: '⚡', appliedIn: 'Semantic Search Pipelines' },
-      { name: 'PyTorch & ML Frameworks', level: 82, experience: '1.5 yrs', icon: '🔥', appliedIn: 'Model Fine-tuning & R&D' },
-      { name: 'OpenAI / Claude Tool Calling', level: 94, experience: '2 yrs', icon: '🧠', appliedIn: 'Stream Responses & Function Calls' },
+      { name: 'Machine Learning & NLP', level: 92, experience: 'Core Focus', icon: '🤖', appliedIn: 'CodeAlpha ML Intern & Vision Pipelines' },
+      { name: 'Prompt Engineering', level: 95, experience: 'Certified', icon: '🧠', appliedIn: 'Infosys Springboard Certified & Gemini AI' },
+      { name: 'Data Analysis & Preprocessing', level: 90, experience: 'Core Focus', icon: '📊', appliedIn: 'Feature Engineering & Data Cleaning' },
+      { name: 'REST APIs Design', level: 94, experience: 'Full-Stack', icon: '⚡', appliedIn: 'Node.js & Express.js Microservices' },
     ]
   },
   {
-    title: 'Core Frontend & Creative Tech',
-    description: 'High-performance React/Next.js architectures, CSS shaders, and zero-latency lerp loops.',
+    title: 'Programming & Web Architecture',
+    description: 'Languages and full-stack frameworks for building scalable intelligent web applications.',
     skills: [
-      { name: 'Next.js 15 & React 19', level: 96, experience: '4+ yrs', icon: '⚛️', appliedIn: 'Liquid Glass Portfolio & Production Apps' },
-      { name: 'TypeScript', level: 94, experience: '4 yrs', icon: '📘', appliedIn: 'Type-Safe Architecture Across All Repos' },
-      { name: 'Tailwind CSS & Glassmorphism', level: 95, experience: '3+ yrs', icon: '🎨', appliedIn: 'Synthetix Design Infrastructure' },
-      { name: 'CSS Radial Masking & Lerp Math', level: 92, experience: '2 yrs', icon: '✨', appliedIn: 'Neuron Glass Refraction Reveal' },
+      { name: 'Python', level: 95, experience: 'Core Tech', icon: '🐍', appliedIn: 'ML Models, Scikit-learn, TensorFlow' },
+      { name: 'React.js & Node.js', level: 92, experience: 'Full-Stack', icon: '⚛️', appliedIn: 'RAISONI-PEERSPACE & PlaceTrack AI' },
+      { name: 'SQL & Database Systems', level: 88, experience: 'Core Tech', icon: '🛢️', appliedIn: 'PostgreSQL, Supabase & Firebase' },
+      { name: 'JavaScript, HTML & CSS', level: 94, experience: 'Core Tech', icon: '🌐', appliedIn: 'Responsive Modern Web Interfaces' },
     ]
   },
   {
-    title: 'Backend, Cloud & Infrastructure',
-    description: 'Production-ready microservices, serverless APIs, containerization, and data caching.',
+    title: 'Tools, Libraries & Platforms',
+    description: 'Developer environments, ML frameworks, and cloud deployment infrastructure.',
     skills: [
-      { name: 'Node.js & FastAPI', level: 90, experience: '3 yrs', icon: '🟢', appliedIn: 'Realtime Streaming Backends' },
-      { name: 'Redis & WebSockets', level: 88, experience: '2 yrs', icon: '🔴', appliedIn: 'Sub-90ms Telemetry Stream' },
-      { name: 'Docker & Kubernetes', level: 84, experience: '2 yrs', icon: '🐳', appliedIn: 'Microservices Deployment' },
-      { name: 'AWS & Google Cloud', level: 86, experience: '2 yrs', icon: '☁️', appliedIn: 'Cloud Infrastructure & IAM' },
+      { name: 'Git & GitHub', level: 94, experience: 'Version Control', icon: '🐙', appliedIn: 'Repository & CI/CD Management' },
+      { name: 'Google Colab & Jupyter', level: 92, experience: 'ML Workbench', icon: '📓', appliedIn: 'Data Preprocessing & Model Training' },
+      { name: 'Scikit-learn & TensorFlow', level: 88, experience: 'ML Frameworks', icon: '🔥', appliedIn: 'Deep Learning & Prediction Models' },
+      { name: 'Firebase & Supabase', level: 90, experience: 'Backend & DB', icon: '⚡', appliedIn: 'JWT Auth & Real-Time Data Storage' },
     ]
   }
 ];
@@ -69,7 +68,7 @@ export function SkillsSection() {
               05 // Engineering Proficiency
             </span>
             <h2 className="font-sans text-3xl md:text-5xl font-extrabold text-slate-950 tracking-tight">
-              Tech Stack &amp; Mastery Matrix.
+              Technical Skills &amp; Stack Matrix.
             </h2>
           </div>
 
@@ -81,7 +80,7 @@ export function SkillsSection() {
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
-            <span>View / Download Resume</span>
+            <span>Inspect Verified Resume</span>
           </button>
         </div>
 
@@ -129,7 +128,7 @@ export function SkillsSection() {
       {/* Interactive Resume Viewer Modal */}
       {showResumeModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-slate-950/60 backdrop-blur-md animate-hero-entry">
-          <div className="bg-white rounded-3xl max-w-2xl w-full p-8 md:p-10 shadow-2xl border border-slate-200 relative overflow-y-auto max-h-[90vh]">
+          <div className="bg-white rounded-3xl max-w-3xl w-full p-8 md:p-10 shadow-2xl border border-slate-200 relative overflow-y-auto max-h-[90vh]">
             <button
               onClick={() => setShowResumeModal(false)}
               className="absolute top-6 right-6 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors"
@@ -140,56 +139,145 @@ export function SkillsSection() {
             </button>
 
             <span className="font-mono text-xs font-bold text-cyan-600 bg-cyan-50 px-3 py-1 rounded-full border border-cyan-200 uppercase tracking-wider block w-fit mb-4">
-              Verified Executive Resume
+              Official Resume Document
             </span>
 
-            <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950 mb-1">
-              Sanket Manoj Chute
-            </h3>
-            <p className="text-xs font-mono text-slate-500 uppercase tracking-wider mb-6">
-              Creative Technology Engineer &amp; AI Systems Developer
-            </p>
-
-            {/* Quick Resume Sections */}
-            <div className="space-y-6 text-slate-600 text-xs md:text-sm leading-relaxed mb-8">
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
-                <h4 className="font-mono text-xs font-bold text-slate-900 uppercase">Core Summary</h4>
-                <p>
-                  Creative technology engineer specializing in high-performance Next.js 15 web applications, autonomous AI agent pipelines, and custom CSS shader interactions. Track record in building sub-90ms latency microservices and 100/100 Lighthouse performance web experiences.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
-                <h4 className="font-mono text-xs font-bold text-slate-900 uppercase">Key Expertise</h4>
-                <div className="flex flex-wrap gap-2 pt-1">
-                  <span className="bg-white border border-slate-200 px-2.5 py-1 rounded text-slate-800 font-semibold text-[11px]">AI Agents &amp; LangChain</span>
-                  <span className="bg-white border border-slate-200 px-2.5 py-1 rounded text-slate-800 font-semibold text-[11px]">Next.js 15 &amp; React 19</span>
-                  <span className="bg-white border border-slate-200 px-2.5 py-1 rounded text-slate-800 font-semibold text-[11px]">TypeScript &amp; Python</span>
-                  <span className="bg-white border border-slate-200 px-2.5 py-1 rounded text-slate-800 font-semibold text-[11px]">CSS Masking &amp; Math Lerping</span>
-                  <span className="bg-white border border-slate-200 px-2.5 py-1 rounded text-slate-800 font-semibold text-[11px]">Docker &amp; AWS Cloud</span>
-                </div>
+            {/* Resume Header */}
+            <div className="border-b border-slate-200 pb-6 mb-6">
+              <h3 className="text-3xl font-extrabold text-slate-950 mb-1">
+                Sanket Chute
+              </h3>
+              <p className="text-xs font-mono text-slate-600 mb-3">
+                sanketchute17@gmail.com | +91 9309054279 | Nagpur, Open to Relocation
+              </p>
+              <div className="flex gap-4 text-xs font-mono text-cyan-600">
+                <a href="https://github.com/sanketchute17-ctrl" target="_blank" rel="noopener noreferrer" className="hover:underline">GitHub: github.com/sanketchute17-ctrl</a>
+                <span>•</span>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:underline">LinkedIn</a>
               </div>
             </div>
 
-            {/* Modal Actions */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 pt-6 border-t border-slate-100">
-              <a
-                href="https://github.com/sanketchute17-ctrl/Portfolio"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:flex-1 py-3 px-5 rounded-xl bg-slate-950 hover:bg-slate-800 text-white font-semibold text-xs md:text-sm text-center transition-colors shadow-md flex items-center justify-center space-x-2"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                </svg>
-                <span>Download Full Resume (PDF)</span>
-              </a>
+            {/* Resume Sections */}
+            <div className="space-y-6 text-slate-700 text-xs md:text-sm leading-relaxed">
+              
+              {/* Summary */}
+              <div>
+                <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-1 mb-2">
+                  Professional Summary
+                </h4>
+                <p>
+                  B.Tech Artificial Intelligence Engineering student with hands-on experience in Machine Learning, DSA, and AI-powered applications. Skilled in Python, SQL, React.js, Node.js, and Firebase. Seeking an entry-level AI/ML Engineer or Software Engineer role to build scalable and intelligent solutions.
+                </p>
+              </div>
 
+              {/* Education */}
+              <div>
+                <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-1 mb-2">
+                  Education
+                </h4>
+                <div className="space-y-2">
+                  <div className="flex justify-between font-medium">
+                    <span><strong>B.Tech, Artificial Intelligence</strong> — G. H. Raisoni College of Engineering and Management, Nagpur</span>
+                    <span className="font-mono text-cyan-700 font-bold">2027 • 8.2 CGPA</span>
+                  </div>
+                  <div className="flex justify-between font-medium">
+                    <span><strong>Diploma in Computer Science &amp; Engineering</strong> — Wainganga College of Engineering, Nagpur</span>
+                    <span className="font-mono text-slate-600">2024 • 81%</span>
+                  </div>
+                  <div className="flex justify-between text-xs text-slate-500">
+                    <span>HSC — Subodh Science Junior College, Masal (64%)</span>
+                    <span>2022</span>
+                  </div>
+                  <div className="flex justify-between text-xs text-slate-500">
+                    <span>SSC — Subodh Vidyalaya, Masal (77.40%)</span>
+                    <span>2020</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Technical Skills */}
+              <div>
+                <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-1 mb-2">
+                  Technical Skills
+                </h4>
+                <ul className="space-y-1 text-xs">
+                  <li><strong>Core Skills:</strong> Machine Learning, Artificial Intelligence, Data Analysis, Data Preprocessing, Prompt Engineering, REST APIs, Natural Language Processing (NLP)</li>
+                  <li><strong>Languages:</strong> Python, SQL, HTML, CSS, JavaScript</li>
+                  <li><strong>Tools &amp; Frameworks:</strong> Git, GitHub, Google Colab, Jupyter Notebook, VS Code, React.js, Node.js, Express.js, Firebase, Supabase, PostgreSQL, Scikit-learn, TensorFlow, Streamlit</li>
+                </ul>
+              </div>
+
+              {/* Projects */}
+              <div>
+                <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-1 mb-2">
+                  Projects
+                </h4>
+                <div className="space-y-3">
+                  <div>
+                    <h5 className="font-bold text-slate-950">RAISONI-PEERSPACE <span className="font-normal text-slate-500">| React.js, Node.js, Express.js, Firebase, Google Gemini AI</span></h5>
+                    <ul className="list-disc list-inside text-xs space-y-1 text-slate-600 mt-1">
+                      <li>Developed a full-stack campus community platform featuring secure user authentication, real-time chat, and an AI-powered chatbot.</li>
+                      <li>Integrated Google Gemini AI to deliver intelligent conversational assistance and enhance user interaction.</li>
+                      <li>Designed and developed RESTful APIs using Node.js and Express.js for seamless communication.</li>
+                      <li>Leveraged Firebase Authentication and backend services for secure user access and data management.</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-bold text-slate-950">PlaceTrack AI <span className="font-normal text-slate-500">| React.js, Node.js, Express.js, Supabase, PostgreSQL, JWT</span></h5>
+                    <ul className="list-disc list-inside text-xs space-y-1 text-slate-600 mt-1">
+                      <li>Developed a full-stack placement management system featuring role-based authentication, ATS resume checking, and placement analytics.</li>
+                      <li>Designed and implemented RESTful APIs for managing students, companies, interviews, and placement records.</li>
+                      <li>Utilized Supabase PostgreSQL for efficient and scalable data storage and retrieval.</li>
+                      <li>Implemented JWT-based authentication to secure user sessions and protect application routes.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Internship */}
+              <div>
+                <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-1 mb-2">
+                  Internship
+                </h4>
+                <div>
+                  <div className="flex justify-between font-bold text-slate-950">
+                    <span>Machine Learning Intern | CodeAlpha</span>
+                    <span className="font-mono font-normal text-slate-500">Feb 26 — Mar 26</span>
+                  </div>
+                  <p className="text-xs text-slate-500 mb-1">Technologies: Python, Scikit-learn, TensorFlow, Streamlit, Git</p>
+                  <ul className="list-disc list-inside text-xs space-y-1 text-slate-600">
+                    <li>Built machine learning and deep learning models for prediction and image recognition tasks.</li>
+                    <li>Implemented data preprocessing, feature engineering, model training, and performance evaluation using Python-based ML libraries.</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Certification */}
+              <div>
+                <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-1 mb-2">
+                  Certifications
+                </h4>
+                <ul className="space-y-1 text-xs">
+                  <li><strong>Elements of AI</strong> — University of Helsinki &amp; MinnaLearn (Feb 2026)</li>
+                  <li><strong>Prompt Engineering for Developers</strong> — Infosys Springboard (Feb 2026)</li>
+                </ul>
+              </div>
+
+            </div>
+
+            {/* Modal Actions */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 pt-6 mt-6 border-t border-slate-200">
               <button
                 onClick={handleCopyEmail}
-                className="w-full sm:w-auto py-3 px-5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs md:text-sm text-center transition-colors flex items-center justify-center space-x-2"
+                className="w-full sm:flex-1 py-3 px-5 rounded-xl bg-slate-950 hover:bg-slate-800 text-white font-semibold text-xs md:text-sm text-center transition-colors flex items-center justify-center space-x-2"
               >
-                <span>{copied ? '✓ Email Copied!' : 'Copy Email Address'}</span>
+                <span>{copied ? '✓ Email Copied (sanketchute17@gmail.com)' : 'Copy Email Address'}</span>
+              </button>
+              <button
+                onClick={() => setShowResumeModal(false)}
+                className="w-full sm:w-auto py-3 px-5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs md:text-sm text-center transition-colors"
+              >
+                Close Viewer
               </button>
             </div>
 

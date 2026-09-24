@@ -14,18 +14,31 @@ export function ContactSection() {
     <section id="contact" className="py-24 md:py-36 bg-white/15 border-t border-slate-200/40 relative z-10">
       <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
         <span className="font-mono text-xs font-semibold uppercase tracking-widest text-cyan-600 block mb-3">
-          05 // Initiate Connection
+          06 // Initiate Connection
         </span>
-        <h2 className="font-sans text-4xl md:text-6xl font-extrabold text-slate-950 tracking-tight mb-6">
+        <h2 className="font-sans text-4xl md:text-6xl font-extrabold text-slate-950 tracking-tight mb-4">
           Let&apos;s Build Together.
         </h2>
-        <p className="text-slate-600 text-base md:text-lg max-w-xl mx-auto mb-12">
-          Available for senior creative technology roles, AI product design, and executive web engineering initiatives.
+        <p className="text-slate-600 text-base md:text-lg max-w-xl mx-auto mb-8">
+          Open for entry-level AI/ML Engineer and Software Engineer roles, machine learning projects, and full-stack web initiatives.
         </p>
 
+        {/* Direct Contact Badges */}
+        <div className="flex flex-wrap items-center justify-center gap-4 mb-12 font-mono text-xs text-slate-700">
+          <a href="mailto:sanketchute17@gmail.com" className="px-4 py-2 rounded-full bg-white border border-slate-200 hover:border-cyan-500 hover:text-cyan-600 transition-colors shadow-xs">
+            ✉️ sanketchute17@gmail.com
+          </a>
+          <a href="tel:+919309054279" className="px-4 py-2 rounded-full bg-white border border-slate-200 hover:border-cyan-500 hover:text-cyan-600 transition-colors shadow-xs">
+            📞 +91 9309054279
+          </a>
+          <span className="px-4 py-2 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 font-semibold">
+            📍 Nagpur (Open to Relocation)
+          </span>
+        </div>
+
         {submitted ? (
-          <div className="p-8 rounded-2xl bg-cyan-50 border border-cyan-200 text-cyan-900 font-medium">
-            Thank you for reaching out! I will respond to your message shortly.
+          <div className="p-8 rounded-2xl bg-cyan-50 border border-cyan-200 text-cyan-900 font-medium max-w-xl mx-auto">
+            Thank you for reaching out! Your message has been sent directly to Sanket.
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6 text-left max-w-xl mx-auto">
@@ -69,7 +82,7 @@ export function ContactSection() {
               type="submit"
               className="w-full min-h-[48px] py-3 px-6 rounded-xl bg-slate-950 text-white font-semibold text-sm hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-500 shadow-md"
             >
-              Send Message
+              Send Message to Sanket
             </button>
           </form>
         )}
