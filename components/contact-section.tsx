@@ -11,7 +11,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-36 bg-white/70 backdrop-blur-md border-t border-slate-200/50 relative z-10">
+    <section id="contact" className="py-24 md:py-36 bg-white/15 border-t border-slate-200/40 relative z-10">
       <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
         <span className="font-mono text-xs font-semibold uppercase tracking-widest text-cyan-600 block mb-3">
           05 // Initiate Connection

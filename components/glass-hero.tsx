@@ -138,7 +138,7 @@ export function GlassHero() {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       onTouchCancel={handleTouchEnd}
-      className="relative w-full min-h-[100svh] overflow-hidden bg-slate-50 select-none animate-hero-entry"
+      className="relative w-full min-h-[100svh] overflow-hidden bg-transparent select-none animate-hero-entry z-10"
       aria-label="Liquid Glass Interactive Hero"
     >
       {/* Background Image Layer 1: Base Image (Full 100% size) */}
@@ -173,7 +173,7 @@ export function GlassHero() {
       </div>
 
       {/* Ambient gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-50/95 via-slate-50/50 to-transparent pointer-events-none z-20 md:w-3/5" />
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-50/70 via-slate-50/20 to-transparent pointer-events-none z-20 md:w-3/5" />
 
       {/* Hero Content Overlay */}
       <div className="relative z-30 min-h-[100svh] w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col justify-between pt-28 pb-12 pointer-events-none">
