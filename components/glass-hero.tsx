@@ -36,9 +36,9 @@ export function GlassHero() {
     // Check prefers-reduced-motion
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Radius specs
-    const DESKTOP_RADIUS = 235;
-    const MOBILE_RADIUS = 150;
+    // Radius specs for targeted mouse magnifying reveal
+    const DESKTOP_RADIUS = 115;
+    const MOBILE_RADIUS = 75;
 
     // RequestAnimationFrame smooth interpolation loop
     const animate = () => {
@@ -154,8 +154,11 @@ export function GlassHero() {
       className="relative w-full min-h-[100svh] overflow-hidden select-none animate-hero-entry z-10 transition-colors duration-500 bg-[var(--bg-primary)] text-[var(--text-primary)]"
       aria-label="Liquid Glass Interactive Hero"
     >
-      {/* Layer 1: Interactive Cosmic Particle Canvas & Energy Portal Background */}
+      {/* Layer 1: Tech Grid Canvas Background */}
       <CosmicHeroBackground />
+
+      {/* Layer 1b: Soft Ambient Backlight Rim for Portrait Depth in Dark Mode */}
+      <div className="absolute right-0 md:right-[5%] bottom-0 w-[380px] md:w-[520px] h-[500px] md:h-[650px] bg-gradient-to-t from-[var(--bg-primary)] via-cyan-500/5 to-transparent pointer-events-none z-10 rounded-full blur-3xl opacity-60" />
 
       {/* Layer 2: Background Image Base Layer (with subtle 2-5px mouse parallax) */}
       <div className="absolute inset-0 w-full h-full pointer-events-none flex items-end justify-center md:justify-end z-10 pt-12 md:pt-16">
@@ -170,7 +173,7 @@ export function GlassHero() {
             <img
               src="/images/Base_image_desktop.png"
               alt="Portrait Master Base"
-              className="max-h-full w-auto object-contain object-bottom md:object-right-bottom max-w-full"
+              className="max-h-full w-auto object-contain object-bottom md:object-right-bottom max-w-full drop-shadow-[0_20px_35px_rgba(0,0,0,0.35)]"
             />
           </picture>
         </div>
@@ -192,7 +195,7 @@ export function GlassHero() {
             <img
               src="/images/Reveal_image_desktop.png"
               alt="Portrait Master Liquid Glass Reveal"
-              className="max-h-full w-auto object-contain object-bottom md:object-right-bottom max-w-full"
+              className="max-h-full w-auto object-contain object-bottom md:object-right-bottom max-w-full drop-shadow-[0_20px_35px_rgba(0,0,0,0.35)]"
             />
           </picture>
         </div>

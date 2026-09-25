@@ -148,20 +148,17 @@ export function ThemeToggle() {
       onClick={(e) => toggleTheme(e)}
       disabled={isTransitioning}
       aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-      className={`relative inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all duration-300 border select-none ${
+      className={`relative inline-flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full transition-all duration-300 border select-none focus:outline-none focus:ring-2 focus:ring-orange-500 ${
         theme === 'dark'
-          ? 'bg-slate-900/90 text-amber-300 border-amber-500/40 hover:border-amber-400 hover:bg-slate-800 shadow-[0_0_15px_rgba(245,158,11,0.2)]'
-          : 'bg-white/90 text-slate-900 border-slate-300/90 hover:border-slate-400 hover:bg-slate-100 shadow-md'
+          ? 'bg-slate-900/90 text-amber-300 border-amber-500/40 hover:border-amber-400 hover:bg-slate-800 shadow-[0_0_15px_rgba(245,158,11,0.2)] hover:scale-105'
+          : 'bg-white/90 text-slate-900 border-slate-300/90 hover:border-slate-400 hover:bg-slate-100 shadow-md hover:scale-105'
       }`}
     >
-      <div className="relative w-4 h-4 flex items-center justify-center">
-        {theme === 'dark' ? (
-          <Moon className="w-3.5 h-3.5 text-amber-400 transition-transform duration-300 rotate-0 scale-100" />
-        ) : (
-          <Sun className="w-3.5 h-3.5 text-orange-500 transition-transform duration-300 rotate-0 scale-100" />
-        )}
-      </div>
-      <span>{theme === 'dark' ? 'NIGHT' : 'DAY'}</span>
+      {theme === 'dark' ? (
+        <Moon className="w-4 h-4 text-amber-400 transition-transform duration-300 rotate-0 scale-100" />
+      ) : (
+        <Sun className="w-4 h-4 text-orange-500 transition-transform duration-300 rotate-0 scale-100" />
+      )}
     </button>
   );
 }
