@@ -32,9 +32,9 @@ export function GlassHero() {
     // Check prefers-reduced-motion
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Radius specs
-    const DESKTOP_RADIUS = 235;
-    const MOBILE_RADIUS = 150;
+    // Radius specs (compact focused lens)
+    const DESKTOP_RADIUS = 165;
+    const MOBILE_RADIUS = 110;
 
     // RequestAnimationFrame smooth interpolation loop
     const animate = () => {
@@ -155,20 +155,22 @@ export function GlassHero() {
         </div>
       </div>
 
-      {/* Background Image Layer 2: Reveal Image (Translucent Liquid Glass) with CSS Masking */}
+      {/* Background Image Layer 2: Reveal Image (Translucent Liquid Glass) with CSS Masking & Light Green/Red Water Color Tint */}
       <div
         className="absolute inset-0 w-full h-full pointer-events-none reveal-mask-layer z-20 flex items-end justify-center md:justify-end pt-16 md:pt-20"
         aria-hidden="true"
       >
-        <div className="w-full h-full max-h-[85vh] md:max-h-[88vh] lg:max-h-[92vh] flex items-end justify-center md:justify-end transform scale-100 md:scale-105 lg:scale-108 origin-bottom md:origin-bottom-right">
+        <div className="w-full h-full max-h-[85vh] md:max-h-[88vh] lg:max-h-[92vh] flex items-end justify-center md:justify-end transform scale-100 md:scale-105 lg:scale-108 origin-bottom md:origin-bottom-right relative">
           <picture className="h-full w-full flex items-end justify-center md:justify-end">
             <source media="(max-width: 767px)" srcSet="/images/Reveal_image_mobile.png" />
             <img
               src="/images/Reveal_image_desktop.png"
               alt="Portrait Master Liquid Glass Reveal"
-              className="max-h-full w-auto object-contain object-bottom md:object-right-bottom max-w-full"
+              className="max-h-full w-auto object-contain object-bottom md:object-right-bottom max-w-full filter contrast-[1.05]"
             />
           </picture>
+          {/* Soft Water Color Light Green & Light Red Dual Refraction Tint */}
+          <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-emerald-400/20 via-transparent to-rose-400/20 mix-blend-color-dodge opacity-90" />
         </div>
       </div>
 
