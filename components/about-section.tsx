@@ -6,10 +6,6 @@ import { UserCheck, Sparkles, GraduationCap, Award, Code2, MapPin } from 'lucide
 export function AboutSection() {
   return (
     <section id="about" className="py-24 md:py-36 bg-[var(--bg-primary)] text-[var(--text-primary)] border-t border-[var(--border-color)] relative z-10 overflow-hidden transition-colors duration-300">
-      
-      {/* Background Glow */}
-      <div className="absolute top-1/2 left-0 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
-
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
           

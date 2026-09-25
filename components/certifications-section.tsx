@@ -40,10 +40,6 @@ export function CertificationsSection() {
 
   return (
     <section id="certifications" className="py-24 md:py-36 border-t border-[var(--border-color)] relative z-10 overflow-hidden bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-500">
-      
-      {/* Background Ambient Glow */}
-      <div className="absolute top-1/2 left-1/4 w-80 h-80 bg-[var(--accent-orange)]/10 rounded-full blur-3xl pointer-events-none" />
-
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header */}

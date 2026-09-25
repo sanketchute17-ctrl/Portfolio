@@ -22,7 +22,6 @@ export default function Home() {
     <main className={`relative min-h-screen transition-colors duration-500 selection:bg-orange-500 selection:text-slate-950 ${
       theme === 'dark' ? 'bg-slate-950 text-slate-100' : 'bg-slate-50 text-slate-900'
     }`}>
-      <DataStreamBg />
       <Navbar />
       <GlassHero />
       <AboutSection />
