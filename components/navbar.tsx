@@ -50,47 +50,7 @@ export function Navbar() {
           </div>
         </Link>
 
-        {/* Desktop Nav Links */}
-        <nav className={`hidden md:flex items-center space-x-8 text-xs lg:text-sm font-medium tracking-wide transition-colors ${
-          theme === 'dark' ? 'text-slate-300' : 'text-slate-700'
-        }`}>
-          <Link
-            href="#about"
-            className="hover:text-orange-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded px-1"
-          >
-            About
-          </Link>
-          <Link
-            href="#work"
-            className="hover:text-orange-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded px-1"
-          >
-            Work
-          </Link>
-          <Link
-            href="#experience"
-            className="hover:text-orange-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded px-1"
-          >
-            Experience
-          </Link>
-          <Link
-            href="#certifications"
-            className="hover:text-orange-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded px-1"
-          >
-            Certifications
-          </Link>
-          <Link
-            href="#skills"
-            className="hover:text-orange-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded px-1"
-          >
-            Skills
-          </Link>
-          <Link
-            href="#process"
-            className="hover:text-orange-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded px-1"
-          >
-            Process
-          </Link>
-        </nav>
+
 
         {/* Top-Right Control Area: Theme Toggle & Primary CTA */}
         <div className="flex items-center gap-3">

@@ -158,11 +158,11 @@ export function GlassHero() {
       <CosmicHeroBackground />
 
       {/* Layer 2: Background Image Base Layer (with subtle 2-5px mouse parallax) */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none flex items-end justify-center md:justify-end z-10 pt-16 md:pt-20">
+      <div className="absolute inset-0 w-full h-full pointer-events-none flex items-end justify-center md:justify-end z-10 pt-12 md:pt-16">
         <div
-          className="w-full h-full max-h-[85vh] md:max-h-[88vh] lg:max-h-[92vh] flex items-end justify-center md:justify-end transform scale-100 md:scale-105 lg:scale-108 origin-bottom md:origin-bottom-right transition-transform duration-300 ease-out"
+          className="w-full h-full max-h-[90vh] md:max-h-[95vh] lg:max-h-[98vh] flex items-end justify-center md:justify-end transform origin-bottom md:origin-bottom-right transition-transform duration-300 ease-out"
           style={{
-            transform: `translate3d(${imageParallax.x}px, ${imageParallax.y}px, 0px) scale(${isMobile ? 1.0 : 1.05})`,
+            transform: `translate3d(${imageParallax.x}px, ${imageParallax.y}px, 0px) scale(${isMobile ? 1.05 : 1.12})`,
           }}
         >
           <picture className="h-full w-full flex items-end justify-center md:justify-end">
@@ -178,13 +178,13 @@ export function GlassHero() {
 
       {/* Layer 3: Background Image Reveal Layer (Translucent Liquid Glass) with CSS Masking */}
       <div
-        className="absolute inset-0 w-full h-full pointer-events-none reveal-mask-layer z-20 flex items-end justify-center md:justify-end pt-16 md:pt-20"
+        className="absolute inset-0 w-full h-full pointer-events-none reveal-mask-layer z-20 flex items-end justify-center md:justify-end pt-12 md:pt-16"
         aria-hidden="true"
       >
         <div
-          className="w-full h-full max-h-[85vh] md:max-h-[88vh] lg:max-h-[92vh] flex items-end justify-center md:justify-end transform scale-100 md:scale-105 lg:scale-108 origin-bottom md:origin-bottom-right transition-transform duration-300 ease-out"
+          className="w-full h-full max-h-[90vh] md:max-h-[95vh] lg:max-h-[98vh] flex items-end justify-center md:justify-end transform origin-bottom md:origin-bottom-right transition-transform duration-300 ease-out"
           style={{
-            transform: `translate3d(${imageParallax.x}px, ${imageParallax.y}px, 0px) scale(${isMobile ? 1.0 : 1.05})`,
+            transform: `translate3d(${imageParallax.x}px, ${imageParallax.y}px, 0px) scale(${isMobile ? 1.05 : 1.12})`,
           }}
         >
           <picture className="h-full w-full flex items-end justify-center md:justify-end">
@@ -206,7 +206,7 @@ export function GlassHero() {
         
         {/* Main Editorial Headline */}
         <div
-          className="absolute left-[max(5.6vw,1.5rem)] top-[34%] transform -translate-y-1/2 max-w-2xl pointer-events-auto"
+          className="absolute left-[max(5.6vw,1.5rem)] top-[32%] transform -translate-y-1/2 max-w-2xl pointer-events-auto"
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-widest text-[var(--accent-orange)] bg-[var(--accent-orange)]/10 border border-[var(--accent-orange)]/30 mb-6 backdrop-blur-md">
             <Sparkles className="w-3.5 h-3.5 text-[var(--accent-orange)]" />
@@ -214,10 +214,10 @@ export function GlassHero() {
           </div>
 
           <h1
-            className="font-sans font-extrabold tracking-tight uppercase leading-[0.93] transition-colors duration-500 text-[var(--text-primary)]"
+            className="font-sans font-extrabold tracking-tight uppercase leading-[0.92] transition-colors duration-500 text-[var(--text-primary)]"
             style={{
-              fontSize: 'clamp(3.8rem, 6.2vw, 6.8rem)',
-              letterSpacing: '-0.075em',
+              fontSize: 'clamp(3.6rem, 6.0vw, 6.5rem)',
+              letterSpacing: '-0.07em',
             }}
           >
             <span className="block animate-line-1">BUILDING</span>
