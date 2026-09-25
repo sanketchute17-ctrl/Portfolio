@@ -3,9 +3,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { CosmicHeroBackground } from './cosmic-hero-background';
+import { useTheme } from './theme-context';
 
 export function GlassHero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const { theme } = useTheme();
 
   // Animation & state refs to avoid React re-renders on cursor move
   const rawPointerRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
@@ -139,14 +142,15 @@ export function GlassHero() {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       onTouchCancel={handleTouchEnd}
-      className="relative w-full min-h-[100svh] overflow-hidden bg-slate-950 text-slate-100 select-none animate-hero-entry z-10"
+      className={`relative w-full min-h-[100svh] overflow-hidden select-none animate-hero-entry z-10 transition-colors duration-500 ${
+        theme === 'dark' ? 'bg-slate-950 text-slate-100' : 'bg-slate-50 text-slate-900'
+      }`}
       aria-label="Liquid Glass Interactive Hero"
     >
-      {/* Ambient Radial Background Glows */}
-      <div className="absolute top-1/4 left-10 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Layer 1: Interactive Cosmic Particle Canvas & Energy Portal Background */}
+      <CosmicHeroBackground />
 
-      {/* Background Image Layer 1: Base Image */}
+      {/* Layer 2: Background Image Base Layer */}
       <div className="absolute inset-0 w-full h-full pointer-events-none flex items-end justify-center md:justify-end z-10 pt-16 md:pt-20">
         <div className="w-full h-full max-h-[85vh] md:max-h-[88vh] lg:max-h-[92vh] flex items-end justify-center md:justify-end transform scale-100 md:scale-105 lg:scale-108 origin-bottom md:origin-bottom-right">
           <picture className="h-full w-full flex items-end justify-center md:justify-end">
@@ -160,7 +164,7 @@ export function GlassHero() {
         </div>
       </div>
 
-      {/* Background Image Layer 2: Reveal Image (Translucent Liquid Glass) with CSS Masking */}
+      {/* Layer 3: Background Image Reveal Layer (Translucent Liquid Glass) with CSS Masking */}
       <div
         className="absolute inset-0 w-full h-full pointer-events-none reveal-mask-layer z-20 flex items-end justify-center md:justify-end pt-16 md:pt-20"
         aria-hidden="true"
@@ -177,30 +181,36 @@ export function GlassHero() {
         </div>
       </div>
 
-      {/* Dark Ambient Gradient Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent pointer-events-none z-20 md:w-3/5" />
+      {/* Layer 4: Ambient Gradient Overlay for text readability */}
+      <div className={`absolute inset-0 pointer-events-none z-20 md:w-3/5 transition-colors duration-500 ${
+        theme === 'dark'
+          ? 'bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent'
+          : 'bg-gradient-to-r from-slate-50/90 via-slate-50/40 to-transparent'
+      }`} />
 
-      {/* Hero Content Overlay */}
+      {/* Layer 5: Hero Content Overlay */}
       <div className="relative z-30 min-h-[100svh] w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col justify-between pt-28 pb-12 pointer-events-none">
         
         {/* Main Editorial Headline */}
         <div
           className="absolute left-[max(5.6vw,1.5rem)] top-[34%] transform -translate-y-1/2 max-w-2xl pointer-events-auto"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-widest text-orange-400 bg-orange-500/10 border border-orange-500/20 mb-6 backdrop-blur-md">
-            <Sparkles className="w-3.5 h-3.5 text-orange-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-widest text-orange-500 bg-orange-500/10 border border-orange-500/30 mb-6 backdrop-blur-md">
+            <Sparkles className="w-3.5 h-3.5 text-orange-500" />
             AI/ML Engineer &amp; Full-Stack Lead
           </div>
 
           <h1
-            className="font-sans font-extrabold tracking-tight text-slate-100 uppercase leading-[0.93]"
+            className={`font-sans font-extrabold tracking-tight uppercase leading-[0.93] transition-colors duration-500 ${
+              theme === 'dark' ? 'text-slate-100' : 'text-slate-950'
+            }`}
             style={{
               fontSize: 'clamp(3.8rem, 6.2vw, 6.8rem)',
               letterSpacing: '-0.075em',
             }}
           >
             <span className="block animate-line-1">BUILDING</span>
-            <span className="block animate-line-2 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">
+            <span className="block animate-line-2 text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-amber-400 to-orange-600">
               INTELLIGENT
             </span>
             <span className="block animate-line-3">PRODUCTS.</span>
@@ -209,17 +219,20 @@ export function GlassHero() {
 
         {/* Bottom Left Supporting Copy & Secondary CTA */}
         <div className="mt-auto pt-48 md:pt-0 max-w-md animate-sub-text pointer-events-auto">
-          <p className="text-sm md:text-base text-slate-300 font-normal leading-relaxed mb-6">
+          <p className={`text-sm md:text-base font-normal leading-relaxed mb-6 transition-colors duration-500 ${
+            theme === 'dark' ? 'text-slate-300' : 'text-slate-700'
+          }`}>
             B.Tech AI Engineer building intelligent machine learning systems, Gemini AI campus apps, and automated placement management tools.
           </p>
+
           <Link
             href="#work"
-            className="inline-flex items-center space-x-3 text-xs md:text-sm font-bold tracking-wider text-orange-400 hover:text-orange-300 uppercase group focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded p-1"
+            className="inline-flex items-center space-x-3 text-xs md:text-sm font-bold tracking-wider text-orange-500 hover:text-orange-400 uppercase group focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded p-1"
           >
-            <span className="border-b-2 border-orange-400 group-hover:border-orange-300 transition-colors pb-0.5">
+            <span className="border-b-2 border-orange-500 group-hover:border-orange-400 transition-colors pb-0.5">
               Explore my work
             </span>
-            <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-orange-400" />
+            <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-orange-500" />
           </Link>
         </div>
 
