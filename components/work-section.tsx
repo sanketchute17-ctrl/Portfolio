@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { ProjectCard, ProjectData } from './ui/project-card';
-import { Sparkles, Code2, Layers, Cpu, X, ExternalLink, Github } from 'lucide-react';
+import { Code2, X, Github } from 'lucide-react';
 import { TechBadge } from './ui/tech-badge';
 
 const projectsData: ProjectData[] = [
@@ -65,38 +65,38 @@ export function WorkSection() {
     : projectsData.filter((p) => p.category === activeTab);
 
   return (
-    <section id="work" className="py-24 md:py-36 bg-slate-950 text-slate-100 border-t border-slate-800/80 relative z-10 overflow-hidden">
+    <section id="work" className="py-24 md:py-36 border-t border-[var(--border-color)] relative z-10 overflow-hidden bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-500">
       
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-[var(--accent-orange)]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-[var(--accent-cyan)]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
-            <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-widest text-orange-400 bg-orange-500/10 border border-orange-500/20 mb-4">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-widest text-[var(--accent-orange)] bg-[var(--accent-orange)]/10 border border-[var(--accent-orange)]/20 mb-4">
               <Code2 className="w-3.5 h-3.5" />
               02 // Featured Projects
             </span>
-            <h2 className="font-sans text-3xl md:text-5xl font-extrabold text-slate-100 tracking-tight">
+            <h2 className="font-sans text-3xl md:text-5xl font-extrabold text-[var(--text-primary)] tracking-tight">
               Selected Work &amp; Case Studies.
             </h2>
           </div>
-          <p className="font-mono text-xs text-slate-400 uppercase tracking-widest mt-4 md:mt-0">
+          <p className="font-mono text-xs text-[var(--text-muted)] uppercase tracking-widest mt-4 md:mt-0">
             [ Interactive Engineering Archive ]
           </p>
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex flex-wrap gap-3 mb-12 border-b border-slate-800/80 pb-6">
+        <div className="flex flex-wrap gap-3 mb-12 border-b border-[var(--border-color)] pb-6">
           <button
             onClick={() => setActiveTab('all')}
             className={`px-5 py-2.5 rounded-full text-xs font-mono font-semibold tracking-wider uppercase transition-all duration-200 ${
               activeTab === 'all'
-                ? 'bg-orange-500 text-slate-950 shadow-lg shadow-orange-500/25 ring-2 ring-orange-400'
-                : 'bg-slate-900/80 text-slate-400 hover:text-slate-100 border border-slate-800'
+                ? 'bg-[var(--accent-orange)] text-white shadow-lg shadow-[var(--accent-orange)]/25 ring-2 ring-[var(--accent-orange)]'
+                : 'bg-[var(--bg-tertiary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-color)]'
             }`}
           >
             All Projects ({projectsData.length})
@@ -106,8 +106,8 @@ export function WorkSection() {
             onClick={() => setActiveTab('ai')}
             className={`px-5 py-2.5 rounded-full text-xs font-mono font-semibold tracking-wider uppercase transition-all duration-200 ${
               activeTab === 'ai'
-                ? 'bg-orange-500 text-slate-950 shadow-lg shadow-orange-500/25 ring-2 ring-orange-400'
-                : 'bg-slate-900/80 text-slate-400 hover:text-slate-100 border border-slate-800'
+                ? 'bg-[var(--accent-orange)] text-white shadow-lg shadow-[var(--accent-orange)]/25 ring-2 ring-[var(--accent-orange)]'
+                : 'bg-[var(--bg-tertiary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-color)]'
             }`}
           >
             AI &amp; Placement Tech
@@ -117,8 +117,8 @@ export function WorkSection() {
             onClick={() => setActiveTab('fullstack')}
             className={`px-5 py-2.5 rounded-full text-xs font-mono font-semibold tracking-wider uppercase transition-all duration-200 ${
               activeTab === 'fullstack'
-                ? 'bg-orange-500 text-slate-950 shadow-lg shadow-orange-500/25 ring-2 ring-orange-400'
-                : 'bg-slate-900/80 text-slate-400 hover:text-slate-100 border border-slate-800'
+                ? 'bg-[var(--accent-orange)] text-white shadow-lg shadow-[var(--accent-orange)]/25 ring-2 ring-[var(--accent-orange)]'
+                : 'bg-[var(--bg-tertiary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-color)]'
             }`}
           >
             Full Stack &amp; Web
@@ -141,39 +141,39 @@ export function WorkSection() {
       {/* Case Study Detail Modal */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-slate-950/80 backdrop-blur-xl animate-hero-entry">
-          <div className="bg-slate-900 rounded-3xl max-w-2xl w-full p-8 md:p-10 shadow-2xl border border-slate-700/80 relative overflow-y-auto max-h-[90vh] text-slate-100">
+          <div className="bg-[var(--card-bg)] rounded-3xl max-w-2xl w-full p-8 md:p-10 shadow-2xl border border-[var(--border-color)] relative overflow-y-auto max-h-[90vh] text-[var(--text-primary)]">
             {/* Close Button */}
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-6 right-6 p-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
+              className="absolute top-6 right-6 p-2 rounded-full bg-[var(--bg-tertiary)] hover:bg-[var(--accent-orange)]/20 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <span className="font-mono text-xs font-bold text-orange-400 bg-orange-500/10 px-3 py-1 rounded-full border border-orange-500/30 uppercase tracking-wider block w-fit mb-4">
+            <span className="font-mono text-xs font-bold text-[var(--accent-orange)] bg-[var(--accent-orange)]/10 px-3 py-1 rounded-full border border-[var(--accent-orange)]/30 uppercase tracking-wider block w-fit mb-4">
               {selectedProject.categoryLabel}
             </span>
 
-            <h3 className="text-2xl md:text-3xl font-extrabold text-slate-100 mb-2">
+            <h3 className="text-2xl md:text-3xl font-extrabold text-[var(--text-primary)] mb-2">
               {selectedProject.title}
             </h3>
-            <p className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-6">
+            <p className="text-xs font-mono text-[var(--text-muted)] uppercase tracking-wider mb-6">
               {selectedProject.subtitle}
             </p>
 
-            <div className="space-y-4 text-slate-300 text-sm md:text-base leading-relaxed mb-8">
+            <div className="space-y-4 text-[var(--text-secondary)] text-sm md:text-base leading-relaxed mb-8">
               <p>{selectedProject.longDescription}</p>
             </div>
 
             {/* Metrics */}
             <div className="mb-8">
-              <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-orange-400 mb-3">
+              <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-[var(--accent-orange)] mb-3">
                 Key Architecture &amp; Performance Highlights
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {selectedProject.metrics.map((m, i) => (
-                  <div key={i} className="p-3 bg-slate-950 rounded-xl border border-slate-800 text-center font-mono text-xs font-bold text-slate-200">
+                  <div key={i} className="p-3 bg-[var(--bg-primary)] rounded-xl border border-[var(--border-color)] text-center font-mono text-xs font-bold text-[var(--text-primary)]">
                     {m}
                   </div>
                 ))}
@@ -182,7 +182,7 @@ export function WorkSection() {
 
             {/* Tech Stack */}
             <div className="mb-8">
-              <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+              <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-[var(--text-muted)] mb-3">
                 Technologies Employed
               </h4>
               <div className="flex flex-wrap gap-2">
@@ -193,19 +193,19 @@ export function WorkSection() {
             </div>
 
             {/* Modal Actions */}
-            <div className="flex items-center gap-4 pt-6 border-t border-slate-800">
+            <div className="flex items-center gap-4 pt-6 border-t border-[var(--border-color)]">
               <a
                 href={selectedProject.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 py-3 px-5 rounded-xl bg-orange-500 hover:bg-orange-400 text-slate-950 font-bold text-xs md:text-sm text-center transition-colors shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2"
+                className="flex-1 py-3 px-5 rounded-xl bg-[var(--accent-orange)] hover:opacity-90 text-white font-bold text-xs md:text-sm text-center transition-colors shadow-lg flex items-center justify-center gap-2"
               >
                 <Github className="w-4 h-4" />
                 <span>View Source Code</span>
               </a>
               <button
                 onClick={() => setSelectedProject(null)}
-                className="py-3 px-5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs md:text-sm text-center transition-colors"
+                className="py-3 px-5 rounded-xl bg-[var(--bg-tertiary)] hover:bg-[var(--border-color)] text-[var(--text-primary)] font-semibold text-xs md:text-sm text-center transition-colors"
               >
                 Close Window
               </button>

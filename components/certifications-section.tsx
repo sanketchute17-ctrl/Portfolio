@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { CertificationCard, CertificationData } from './ui/certification-card';
-import { Award, ShieldCheck } from 'lucide-react';
+import { Award } from 'lucide-react';
 
 const certificationsData: CertificationData[] = [
   {
@@ -39,25 +39,25 @@ export function CertificationsSection() {
     : certificationsData.filter((c) => c.category === activeTab);
 
   return (
-    <section id="certifications" className="py-24 md:py-36 bg-slate-950 text-slate-100 border-t border-slate-800/80 relative z-10 overflow-hidden">
+    <section id="certifications" className="py-24 md:py-36 border-t border-[var(--border-color)] relative z-10 overflow-hidden bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-500">
       
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/2 left-1/4 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/4 w-80 h-80 bg-[var(--accent-orange)]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
-            <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-widest text-orange-400 bg-orange-500/10 border border-orange-500/20 mb-4">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-widest text-[var(--accent-orange)] bg-[var(--accent-orange)]/10 border border-[var(--accent-orange)]/20 mb-4">
               <Award className="w-3.5 h-3.5" />
               04 // Credentials &amp; Verification
             </span>
-            <h2 className="font-sans text-3xl md:text-5xl font-extrabold text-slate-100 tracking-tight">
+            <h2 className="font-sans text-3xl md:text-5xl font-extrabold text-[var(--text-primary)] tracking-tight">
               Verified Certifications.
             </h2>
           </div>
-          <p className="font-mono text-xs text-slate-400 uppercase tracking-widest mt-4 md:mt-0">
+          <p className="font-mono text-xs text-[var(--text-muted)] uppercase tracking-widest mt-4 md:mt-0">
             [ Industry Recognized Credentials ]
           </p>
         </div>

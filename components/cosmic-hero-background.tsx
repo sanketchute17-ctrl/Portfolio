@@ -8,7 +8,7 @@ interface Particle {
   y: number;
   z: number; // depth layer: 0.1 (far) to 1.0 (near)
   angle: number;
-  radius: number; // orbital radius from center
+  radius: number;
   speed: number;
   size: number;
   opacity: number;
@@ -36,15 +36,15 @@ export function CosmicHeroBackground() {
     // Check prefers-reduced-motion
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Target particle count based on device capability
+    // Target particle count: 500-600 on desktop, 150-200 on mobile
     const isTouchDevice = window.matchMedia('(pointer: coarse)').matches || window.matchMedia('(hover: none)').matches;
     const screenWidth = window.innerWidth;
-    const particleCount = isTouchDevice || screenWidth < 768 ? 400 : screenWidth < 1280 ? 800 : 1200;
+    const particleCount = isTouchDevice || screenWidth < 768 ? 160 : screenWidth < 1280 ? 450 : 650;
 
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    // Mouse tracking & delayed parallax
+    // Mouse tracking & delayed parallax (lerp 0.05)
     let targetMouseX = width / 2;
     let targetMouseY = height / 2;
     let mouseX = width / 2;
@@ -86,12 +86,12 @@ export function CosmicHeroBackground() {
 
     for (let i = 0; i < particleCount; i++) {
       const z = Math.random() * 0.9 + 0.1; // 0.1 to 1.0 depth
-      const radius = Math.random() * Math.max(width, height) * 0.8 + 30;
+      const radius = Math.random() * Math.max(width, height) * 0.85 + 30;
       const angle = Math.random() * Math.PI * 2;
 
       const { cx, cy } = getPortalCenter();
       const px = cx + Math.cos(angle) * radius;
-      const py = cy + Math.sin(angle) * radius * 0.4;
+      const py = cy + Math.sin(angle) * radius * 0.45;
 
       particles.push({
         x: px,
@@ -99,16 +99,16 @@ export function CosmicHeroBackground() {
         z,
         angle,
         radius,
-        speed: (0.0015 + (1 - z) * 0.002) * (reducedMotion ? 0.2 : 1.0),
+        speed: (0.0012 + (1 - z) * 0.0018) * (reducedMotion ? 0.25 : 1.0),
         size: z * 2.2 + 0.6,
-        opacity: Math.random() * 0.6 + 0.3,
+        opacity: Math.random() * 0.55 + 0.35,
         prevX: px,
         prevY: py,
         colorType: colors[Math.floor(Math.random() * colors.length)],
       });
     }
 
-    // Color Interpolation Helper for Day / Night transition
+    // Interpolate Color helper for smooth Day/Night transition
     const interpolateColor = (
       nightRGB: [number, number, number],
       dayRGB: [number, number, number],
@@ -123,22 +123,22 @@ export function CosmicHeroBackground() {
 
     let animFrameId: number;
 
-    // Main 60 FPS Render Loop
+    // 60 FPS Render Loop
     const render = () => {
       const t = transitionRef.current; // 0 (Night) to 1 (Day)
 
       // 1. Smooth mouse lerp (0.05)
       mouseX += (targetMouseX - mouseX) * 0.05;
       mouseY += (targetMouseY - mouseY) * 0.05;
-      const mouseParallaxX = (mouseX - width / 2) * 0.04;
-      const mouseParallaxY = (mouseY - height / 2) * 0.04;
+      const mouseParallaxX = (mouseX - width / 2) * 0.035;
+      const mouseParallaxY = (mouseY - height / 2) * 0.035;
 
       // 2. Clear canvas with themed background
       ctx.clearRect(0, 0, width, height);
 
       // Interpolate Background Gradient
       const bgNightTop = [2, 6, 23];      // #020617 (slate-950)
-      const bgNightBottom = [5, 8, 20];   // Deep space navy
+      const bgNightBottom = [5, 8, 22];   // Deep navy
       const bgDayTop = [248, 250, 252];   // #f8fafc (slate-50)
       const bgDayBottom = [241, 245, 249];// #f1f5f9 (slate-100)
 
@@ -151,37 +151,36 @@ export function CosmicHeroBackground() {
       const { cx, cy } = getPortalCenter();
 
       // 3. Render Central Energy Portal (Bottom-Center)
-      const portalRadius = Math.min(width, height) * 0.35;
+      const portalRadius = Math.min(width, height) * 0.36;
 
-      // Portal Ambient Radial Atmosphere
       const portalGlowGrad = ctx.createRadialGradient(
         cx + mouseParallaxX * 0.2,
         cy + mouseParallaxY * 0.2,
         5,
         cx + mouseParallaxX * 0.2,
         cy + mouseParallaxY * 0.2,
-        portalRadius * 1.6
+        portalRadius * 1.5
       );
 
       // Night Portal: Electric Purple/Cyan. Day Portal: Soft Warm Violet/Rose.
       portalGlowGrad.addColorStop(0, interpolateColor([216, 180, 254], [192, 132, 252], t, 0.45));
-      portalGlowGrad.addColorStop(0.35, interpolateColor([147, 51, 234], [168, 85, 247], t, 0.35));
-      portalGlowGrad.addColorStop(0.7, interpolateColor([79, 70, 229], [249, 115, 22], t, 0.15));
+      portalGlowGrad.addColorStop(0.35, interpolateColor([147, 51, 234], [168, 85, 247], t, 0.32));
+      portalGlowGrad.addColorStop(0.7, interpolateColor([79, 70, 229], [249, 115, 22], t, 0.14));
       portalGlowGrad.addColorStop(1, interpolateColor([2, 6, 23], [248, 250, 252], t, 0));
 
       ctx.fillStyle = portalGlowGrad;
       ctx.beginPath();
-      ctx.arc(cx + mouseParallaxX * 0.2, cy + mouseParallaxY * 0.2, portalRadius * 1.6, 0, Math.PI * 2);
+      ctx.arc(cx + mouseParallaxX * 0.2, cy + mouseParallaxY * 0.2, portalRadius * 1.5, 0, Math.PI * 2);
       ctx.fill();
 
       // Curved Portal Energy Rings / Gravitational Lens Arcs
       ctx.save();
-      ctx.translate(cx + mouseParallaxX * 0.3, cy + mouseParallaxY * 0.3);
+      ctx.translate(cx + mouseParallaxX * 0.25, cy + mouseParallaxY * 0.25);
       
       // Horizontal Horizon Light Streak
       const horizonGrad = ctx.createLinearGradient(-portalRadius, 0, portalRadius, 0);
       horizonGrad.addColorStop(0, interpolateColor([168, 85, 247], [249, 115, 22], t, 0));
-      horizonGrad.addColorStop(0.5, interpolateColor([255, 255, 255], [147, 51, 234], t, 0.9));
+      horizonGrad.addColorStop(0.5, interpolateColor([255, 255, 255], [147, 51, 234], t, 0.85));
       horizonGrad.addColorStop(1, interpolateColor([56, 189, 248], [6, 182, 212], t, 0));
 
       ctx.fillStyle = horizonGrad;
@@ -190,13 +189,13 @@ export function CosmicHeroBackground() {
       // Elliptical Gravitational Ring
       ctx.beginPath();
       ctx.ellipse(0, 0, portalRadius * 0.85, portalRadius * 0.28, 0, 0, Math.PI * 2);
-      ctx.strokeStyle = interpolateColor([192, 132, 252], [147, 51, 234], t, 0.6);
+      ctx.strokeStyle = interpolateColor([192, 132, 252], [147, 51, 234], t, 0.55);
       ctx.lineWidth = 1.8;
       ctx.stroke();
 
       ctx.beginPath();
       ctx.ellipse(0, 0, portalRadius * 0.6, portalRadius * 0.18, 0, 0, Math.PI * 2);
-      ctx.strokeStyle = interpolateColor([255, 255, 255], [249, 115, 22], t, 0.7);
+      ctx.strokeStyle = interpolateColor([255, 255, 255], [249, 115, 22], t, 0.65);
       ctx.lineWidth = 1.2;
       ctx.stroke();
 
@@ -212,9 +211,9 @@ export function CosmicHeroBackground() {
 
         // Orbital vortex motion around portal center
         p.angle += p.speed;
-        p.radius -= 0.15; // Slow inward spiraling
+        p.radius -= 0.14; // Slow inward spiraling
 
-        if (p.radius < 20) {
+        if (p.radius < 18) {
           // Recycle particle smoothly to outer orbit
           p.radius = Math.max(width, height) * 0.85 + Math.random() * 50;
           p.angle = Math.random() * Math.PI * 2;
@@ -225,7 +224,7 @@ export function CosmicHeroBackground() {
         let targetY = cy + Math.sin(p.angle) * p.radius * 0.45;
 
         // Depth Layer Parallax Offset
-        const layerParallax = p.z * 1.5;
+        const layerParallax = p.z * 1.4;
         targetX += mouseParallaxX * layerParallax;
         targetY += mouseParallaxY * layerParallax;
 
@@ -234,10 +233,10 @@ export function CosmicHeroBackground() {
           const mdx = targetX - mouseX;
           const mdy = targetY - mouseY;
           const distSq = mdx * mdx + mdy * mdy;
-          const maxDistSq = 180 * 180;
+          const maxDistSq = 160 * 160;
 
           if (distSq < maxDistSq) {
-            const force = (1 - distSq / maxDistSq) * 22 * p.z;
+            const force = (1 - distSq / maxDistSq) * 20 * p.z;
             const angleToMouse = Math.atan2(mdy, mdx);
             targetX += Math.cos(angleToMouse) * force;
             targetY += Math.sin(angleToMouse) * force;
@@ -306,7 +305,7 @@ export function CosmicHeroBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 w-full h-full pointer-events-none z-0 transition-opacity duration-500"
+      className="fixed inset-0 w-full h-full pointer-events-none z-0"
       aria-hidden="true"
     />
   );

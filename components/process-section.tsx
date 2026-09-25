@@ -23,7 +23,7 @@ const steps = [
 
 export function ProcessSection() {
   return (
-    <section id="process" className="py-24 md:py-36 bg-slate-950 text-slate-100 border-t border-slate-800/80 relative z-10 overflow-hidden">
+    <section id="process" className="py-24 md:py-36 bg-[var(--bg-primary)] text-[var(--text-primary)] border-t border-[var(--border-color)] relative z-10 overflow-hidden transition-colors duration-300">
       
       {/* Ambient Glow */}
       <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -34,22 +34,22 @@ export function ProcessSection() {
             <Workflow className="w-3.5 h-3.5" />
             06 // Methodology
           </span>
-          <h2 className="font-sans text-3xl md:text-5xl font-extrabold text-slate-100 tracking-tight">
+          <h2 className="font-sans text-3xl md:text-5xl font-extrabold text-[var(--text-primary)] tracking-tight">
             How The Reveal Works.
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step, idx) => (
-            <div key={idx} className="p-8 rounded-2xl bg-slate-900/90 border border-slate-800 backdrop-blur-xl flex flex-col justify-between shadow-xl hover:border-slate-700 transition-all duration-300">
+            <div key={idx} className="p-8 rounded-2xl bg-[var(--card-bg)] border border-[var(--border-color)] backdrop-blur-xl flex flex-col justify-between shadow-xl hover:border-orange-500/40 transition-all duration-300">
               <div>
                 <span className="font-mono text-3xl font-extrabold text-orange-400 block mb-4">
                   {step.num}
                 </span>
-                <h3 className="font-sans text-xl font-bold text-slate-100 mb-3">
+                <h3 className="font-sans text-xl font-bold text-[var(--text-primary)] mb-3">
                   {step.title}
                 </h3>
-                <p className="text-slate-400 text-sm leading-relaxed">
+                <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
                   {step.body}
                 </p>
               </div>

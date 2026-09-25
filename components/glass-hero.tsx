@@ -4,11 +4,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { CosmicHeroBackground } from './cosmic-hero-background';
-import { useTheme } from './theme-context';
 
 export function GlassHero() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { theme } = useTheme();
 
   // Animation & state refs to avoid React re-renders on cursor move
   const rawPointerRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
@@ -18,6 +16,8 @@ export function GlassHero() {
   const isHoveringRef = useRef<boolean>(false);
   const animFrameIdRef = useRef<number | null>(null);
 
+  // Subtle 2-6px Mouse Parallax on Portrait Image
+  const [imageParallax, setImageParallax] = useState({ x: 0, y: 0 });
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
@@ -78,7 +78,7 @@ export function GlassHero() {
     };
   }, [isMobile]);
 
-  // Pointer move handlers
+  // Pointer move handlers + subtle 2-6px image parallax
   const handlePointerEnter = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
@@ -98,10 +98,18 @@ export function GlassHero() {
 
     rawPointerRef.current = { x, y };
     isHoveringRef.current = true;
+
+    // Calculate subtle 2-5px parallax on profile portrait
+    if (!isMobile) {
+      const px = ((x - rect.width / 2) / (rect.width / 2)) * 4;
+      const py = ((y - rect.height / 2) / (rect.height / 2)) * 4;
+      setImageParallax({ x: px, y: py });
+    }
   };
 
   const handlePointerLeave = () => {
     isHoveringRef.current = false;
+    setImageParallax({ x: 0, y: 0 });
   };
 
   // Touch handlers for mobile
@@ -130,6 +138,7 @@ export function GlassHero() {
 
   const handleTouchEnd = () => {
     isHoveringRef.current = false;
+    setImageParallax({ x: 0, y: 0 });
   };
 
   return (
@@ -142,17 +151,20 @@ export function GlassHero() {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       onTouchCancel={handleTouchEnd}
-      className={`relative w-full min-h-[100svh] overflow-hidden select-none animate-hero-entry z-10 transition-colors duration-500 ${
-        theme === 'dark' ? 'bg-slate-950 text-slate-100' : 'bg-slate-50 text-slate-900'
-      }`}
+      className="relative w-full min-h-[100svh] overflow-hidden select-none animate-hero-entry z-10 transition-colors duration-500 bg-[var(--bg-primary)] text-[var(--text-primary)]"
       aria-label="Liquid Glass Interactive Hero"
     >
       {/* Layer 1: Interactive Cosmic Particle Canvas & Energy Portal Background */}
       <CosmicHeroBackground />
 
-      {/* Layer 2: Background Image Base Layer */}
+      {/* Layer 2: Background Image Base Layer (with subtle 2-5px mouse parallax) */}
       <div className="absolute inset-0 w-full h-full pointer-events-none flex items-end justify-center md:justify-end z-10 pt-16 md:pt-20">
-        <div className="w-full h-full max-h-[85vh] md:max-h-[88vh] lg:max-h-[92vh] flex items-end justify-center md:justify-end transform scale-100 md:scale-105 lg:scale-108 origin-bottom md:origin-bottom-right">
+        <div
+          className="w-full h-full max-h-[85vh] md:max-h-[88vh] lg:max-h-[92vh] flex items-end justify-center md:justify-end transform scale-100 md:scale-105 lg:scale-108 origin-bottom md:origin-bottom-right transition-transform duration-300 ease-out"
+          style={{
+            transform: `translate3d(${imageParallax.x}px, ${imageParallax.y}px, 0px) scale(${isMobile ? 1.0 : 1.05})`,
+          }}
+        >
           <picture className="h-full w-full flex items-end justify-center md:justify-end">
             <source media="(max-width: 767px)" srcSet="/images/Base_image_mobile.png" />
             <img
@@ -169,7 +181,12 @@ export function GlassHero() {
         className="absolute inset-0 w-full h-full pointer-events-none reveal-mask-layer z-20 flex items-end justify-center md:justify-end pt-16 md:pt-20"
         aria-hidden="true"
       >
-        <div className="w-full h-full max-h-[85vh] md:max-h-[88vh] lg:max-h-[92vh] flex items-end justify-center md:justify-end transform scale-100 md:scale-105 lg:scale-108 origin-bottom md:origin-bottom-right">
+        <div
+          className="w-full h-full max-h-[85vh] md:max-h-[88vh] lg:max-h-[92vh] flex items-end justify-center md:justify-end transform scale-100 md:scale-105 lg:scale-108 origin-bottom md:origin-bottom-right transition-transform duration-300 ease-out"
+          style={{
+            transform: `translate3d(${imageParallax.x}px, ${imageParallax.y}px, 0px) scale(${isMobile ? 1.0 : 1.05})`,
+          }}
+        >
           <picture className="h-full w-full flex items-end justify-center md:justify-end">
             <source media="(max-width: 767px)" srcSet="/images/Reveal_image_mobile.png" />
             <img
@@ -182,11 +199,7 @@ export function GlassHero() {
       </div>
 
       {/* Layer 4: Ambient Gradient Overlay for text readability */}
-      <div className={`absolute inset-0 pointer-events-none z-20 md:w-3/5 transition-colors duration-500 ${
-        theme === 'dark'
-          ? 'bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent'
-          : 'bg-gradient-to-r from-slate-50/90 via-slate-50/40 to-transparent'
-      }`} />
+      <div className="absolute inset-0 pointer-events-none z-20 md:w-3/5 transition-colors duration-500 bg-gradient-to-r from-[var(--bg-primary)] via-[var(--bg-primary)]/40 to-transparent" />
 
       {/* Layer 5: Hero Content Overlay */}
       <div className="relative z-30 min-h-[100svh] w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col justify-between pt-28 pb-12 pointer-events-none">
@@ -195,22 +208,20 @@ export function GlassHero() {
         <div
           className="absolute left-[max(5.6vw,1.5rem)] top-[34%] transform -translate-y-1/2 max-w-2xl pointer-events-auto"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-widest text-orange-500 bg-orange-500/10 border border-orange-500/30 mb-6 backdrop-blur-md">
-            <Sparkles className="w-3.5 h-3.5 text-orange-500" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-widest text-[var(--accent-orange)] bg-[var(--accent-orange)]/10 border border-[var(--accent-orange)]/30 mb-6 backdrop-blur-md">
+            <Sparkles className="w-3.5 h-3.5 text-[var(--accent-orange)]" />
             AI/ML Engineer &amp; Full-Stack Lead
           </div>
 
           <h1
-            className={`font-sans font-extrabold tracking-tight uppercase leading-[0.93] transition-colors duration-500 ${
-              theme === 'dark' ? 'text-slate-100' : 'text-slate-950'
-            }`}
+            className="font-sans font-extrabold tracking-tight uppercase leading-[0.93] transition-colors duration-500 text-[var(--text-primary)]"
             style={{
               fontSize: 'clamp(3.8rem, 6.2vw, 6.8rem)',
               letterSpacing: '-0.075em',
             }}
           >
             <span className="block animate-line-1">BUILDING</span>
-            <span className="block animate-line-2 text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-amber-400 to-orange-600">
+            <span className="block animate-line-2 text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-orange)] via-amber-400 to-orange-600">
               INTELLIGENT
             </span>
             <span className="block animate-line-3">PRODUCTS.</span>
@@ -219,20 +230,18 @@ export function GlassHero() {
 
         {/* Bottom Left Supporting Copy & Secondary CTA */}
         <div className="mt-auto pt-48 md:pt-0 max-w-md animate-sub-text pointer-events-auto">
-          <p className={`text-sm md:text-base font-normal leading-relaxed mb-6 transition-colors duration-500 ${
-            theme === 'dark' ? 'text-slate-300' : 'text-slate-700'
-          }`}>
+          <p className="text-sm md:text-base font-normal leading-relaxed mb-6 transition-colors duration-500 text-[var(--text-secondary)]">
             B.Tech AI Engineer building intelligent machine learning systems, Gemini AI campus apps, and automated placement management tools.
           </p>
 
           <Link
             href="#work"
-            className="inline-flex items-center space-x-3 text-xs md:text-sm font-bold tracking-wider text-orange-500 hover:text-orange-400 uppercase group focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded p-1"
+            className="inline-flex items-center space-x-3 text-xs md:text-sm font-bold tracking-wider uppercase group focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-orange)] rounded p-1 text-[var(--accent-orange)] hover:opacity-90"
           >
-            <span className="border-b-2 border-orange-500 group-hover:border-orange-400 transition-colors pb-0.5">
+            <span className="border-b-2 border-[var(--accent-orange)] group-hover:border-[var(--accent-amber)] transition-colors pb-0.5">
               Explore my work
             </span>
-            <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-orange-500" />
+            <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-[var(--accent-orange)]" />
           </Link>
         </div>
 

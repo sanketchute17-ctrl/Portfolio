@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Briefcase, Calendar, MapPin, ChevronRight, Sparkles, Building2, CheckCircle2 } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, Sparkles, Building2, CheckCircle2 } from 'lucide-react';
 import { TechBadge } from './tech-badge';
 
 export interface ExperienceData {
@@ -25,7 +25,6 @@ interface ExperienceCardProps {
 
 export function ExperienceCard({ experience, isLast = false }: ExperienceCardProps) {
   const [isHovered, setIsHovered] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(true);
 
   return (
     <div
@@ -39,8 +38,8 @@ export function ExperienceCard({ experience, isLast = false }: ExperienceCardPro
         <div
           className={`relative z-10 w-9 h-9 rounded-full flex items-center justify-center border transition-all duration-300 ${
             isHovered
-              ? 'bg-orange-500 text-slate-950 border-orange-400 shadow-[0_0_20px_rgba(249,115,22,0.6)] scale-110'
-              : 'bg-slate-900 text-orange-400 border-slate-700/80 shadow-md'
+              ? 'bg-[var(--accent-orange)] text-white border-[var(--accent-orange)] shadow-[0_0_20px_rgba(249,115,22,0.6)] scale-110'
+              : 'bg-[var(--card-bg)] text-[var(--accent-orange)] border-[var(--border-color)] shadow-md'
           }`}
         >
           <Briefcase className="w-4 h-4" />
@@ -50,7 +49,7 @@ export function ExperienceCard({ experience, isLast = false }: ExperienceCardPro
         {!isLast && (
           <div
             className={`w-0.5 flex-1 transition-colors duration-300 ${
-              isHovered ? 'bg-gradient-to-b from-orange-500/80 to-slate-800' : 'bg-slate-800'
+              isHovered ? 'bg-gradient-to-b from-[var(--accent-orange)]/80 to-[var(--border-color)]' : 'bg-[var(--border-color)]'
             }`}
           />
         )}
@@ -58,10 +57,10 @@ export function ExperienceCard({ experience, isLast = false }: ExperienceCardPro
 
       {/* Main Glassmorphic Card Container */}
       <div
-        className={`flex-1 mb-10 rounded-2xl border transition-all duration-300 p-6 md:p-8 bg-slate-900/90 backdrop-blur-xl ${
+        className={`flex-1 mb-10 rounded-2xl border transition-all duration-300 p-6 md:p-8 backdrop-blur-xl bg-[var(--card-bg)] border-[var(--border-color)] ${
           isHovered
-            ? 'border-orange-500/50 shadow-[0_20px_50px_rgba(249,115,22,0.12)] -translate-y-1.5'
-            : 'border-slate-800/80 shadow-xl'
+            ? 'border-[var(--accent-orange)]/60 shadow-xl -translate-y-1.5'
+            : 'shadow-lg'
         }`}
       >
         {/* Header Row: Company Logo, Role, Company, Period */}
@@ -71,8 +70,8 @@ export function ExperienceCard({ experience, isLast = false }: ExperienceCardPro
             <div
               className={`w-12 h-12 rounded-xl flex items-center justify-center border transition-transform duration-300 font-mono font-bold text-lg ${
                 isHovered
-                  ? 'scale-110 bg-orange-500/20 text-orange-400 border-orange-500/40 shadow-lg'
-                  : 'bg-slate-800/80 text-slate-200 border-slate-700/80'
+                  ? 'scale-110 bg-[var(--accent-orange)]/20 text-[var(--accent-orange)] border-[var(--accent-orange)]/40 shadow-lg'
+                  : 'bg-[var(--bg-tertiary)] text-[var(--text-primary)] border-[var(--border-color)]'
               }`}
             >
               {experience.logo ? (
@@ -84,17 +83,17 @@ export function ExperienceCard({ experience, isLast = false }: ExperienceCardPro
 
             <div>
               {/* Job Title */}
-              <h3 className="font-sans text-xl md:text-2xl font-bold text-slate-100 tracking-tight group-hover:text-orange-400 transition-colors duration-200">
+              <h3 className="font-sans text-xl md:text-2xl font-bold text-[var(--text-primary)] tracking-tight group-hover:text-[var(--accent-orange)] transition-colors duration-200">
                 {experience.role}
               </h3>
 
               {/* Company & Type */}
               <div className="flex flex-wrap items-center gap-2 mt-1">
-                <span className="font-sans font-semibold text-slate-300 text-sm">
+                <span className="font-sans font-semibold text-[var(--text-secondary)] text-sm">
                   {experience.company}
                 </span>
-                <span className="text-slate-600">•</span>
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-slate-800/90 text-cyan-300 border border-slate-700/60">
+                <span className="text-[var(--text-muted)]">•</span>
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-[var(--bg-tertiary)] text-[var(--accent-cyan)] border border-[var(--border-color)]">
                   {experience.type}
                 </span>
               </div>
@@ -103,32 +102,32 @@ export function ExperienceCard({ experience, isLast = false }: ExperienceCardPro
 
           {/* Period & Location Metadata Badges */}
           <div className="flex flex-wrap items-center gap-2 self-start md:self-auto">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono text-slate-300 bg-slate-950/80 border border-slate-800">
-              <Calendar className="w-3.5 h-3.5 text-orange-400" />
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono text-[var(--text-secondary)] bg-[var(--bg-primary)] border border-[var(--border-color)]">
+              <Calendar className="w-3.5 h-3.5 text-[var(--accent-orange)]" />
               {experience.period}
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono text-slate-400 bg-slate-950/80 border border-slate-800">
-              <MapPin className="w-3.5 h-3.5 text-cyan-400" />
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono text-[var(--text-muted)] bg-[var(--bg-primary)] border border-[var(--border-color)]">
+              <MapPin className="w-3.5 h-3.5 text-[var(--accent-cyan)]" />
               {experience.location}
             </span>
           </div>
         </div>
 
         {/* Summary */}
-        <p className="font-sans text-slate-300 text-sm md:text-base leading-relaxed mb-6">
+        <p className="font-sans text-[var(--text-secondary)] text-sm md:text-base leading-relaxed mb-6">
           {experience.summary}
         </p>
 
         {/* Key Responsibilities & Achievements Bullet Points */}
         <div className="mb-6 space-y-2.5">
-          <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-orange-400 mb-3 flex items-center gap-2">
+          <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-[var(--accent-orange)] mb-3 flex items-center gap-2">
             <Sparkles className="w-3.5 h-3.5" />
             Key Deliverables &amp; Achievements
           </h4>
           {experience.highlights.map((highlight, idx) => (
             <div key={idx} className="flex items-start gap-3 group/item">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5 group-hover/item:text-orange-400 transition-colors" />
-              <span className="font-sans text-sm text-slate-300 leading-relaxed">
+              <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5 group-hover/item:text-[var(--accent-orange)] transition-colors" />
+              <span className="font-sans text-sm text-[var(--text-secondary)] leading-relaxed">
                 {highlight}
               </span>
             </div>
@@ -141,7 +140,7 @@ export function ExperienceCard({ experience, isLast = false }: ExperienceCardPro
             {experience.metrics.map((metric, idx) => (
               <span
                 key={idx}
-                className="px-3 py-1 rounded-lg text-xs font-mono bg-orange-500/10 text-orange-300 border border-orange-500/20"
+                className="px-3 py-1 rounded-lg text-xs font-mono bg-[var(--accent-orange)]/10 text-[var(--accent-orange)] border border-[var(--accent-orange)]/20"
               >
                 {metric}
               </span>
@@ -150,8 +149,8 @@ export function ExperienceCard({ experience, isLast = false }: ExperienceCardPro
         )}
 
         {/* Technology Stack Tags */}
-        <div className="pt-4 border-t border-slate-800/80">
-          <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-slate-400 block mb-3">
+        <div className="pt-4 border-t border-[var(--border-color)]">
+          <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-[var(--text-muted)] block mb-3">
             Core Technology Stack
           </span>
           <div className="flex flex-wrap gap-1.5">

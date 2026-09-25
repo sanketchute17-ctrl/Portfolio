@@ -13,11 +13,11 @@ export function TechBadge({ label, icon, variant = 'default', className = '' }: 
   const getVariantStyles = () => {
     switch (variant) {
       case 'glow':
-        return 'bg-orange-500/10 text-orange-400 border-orange-500/30 hover:border-orange-500/60 shadow-[0_0_12px_rgba(249,115,22,0.15)]';
+        return 'bg-[var(--accent-orange)]/10 text-[var(--accent-orange)] border-[var(--accent-orange)]/30 hover:border-[var(--accent-orange)]/60 shadow-sm';
       case 'accent':
-        return 'bg-cyan-500/10 text-cyan-400 border-cyan-500/30 hover:border-cyan-500/60 shadow-[0_0_12px_rgba(6,182,212,0.15)]';
+        return 'bg-[var(--accent-cyan)]/10 text-[var(--accent-cyan)] border-[var(--accent-cyan)]/30 hover:border-[var(--accent-cyan)]/60 shadow-sm';
       default:
-        return 'bg-slate-900/70 text-slate-300 border-slate-700/60 hover:border-slate-500 hover:text-slate-100';
+        return 'bg-[var(--bg-tertiary)] text-[var(--text-secondary)] border-[var(--border-color)] hover:border-[var(--accent-orange)]/50 hover:text-[var(--text-primary)]';
     }
   };
 

@@ -12,7 +12,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-36 bg-slate-950 text-slate-100 border-t border-slate-800/80 relative z-10 overflow-hidden">
+    <section id="contact" className="py-24 md:py-36 bg-[var(--bg-primary)] text-[var(--text-primary)] border-t border-[var(--border-color)] relative z-10 overflow-hidden transition-colors duration-300">
       
       {/* Background Ambient Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -23,19 +23,19 @@ export function ContactSection() {
           07 // Initiate Connection
         </span>
 
-        <h2 className="font-sans text-4xl md:text-6xl font-extrabold text-slate-100 tracking-tight mb-4">
+        <h2 className="font-sans text-4xl md:text-6xl font-extrabold text-[var(--text-primary)] tracking-tight mb-4">
           Let&apos;s Build Together.
         </h2>
 
-        <p className="text-slate-400 text-base md:text-lg max-w-xl mx-auto mb-8">
+        <p className="text-[var(--text-secondary)] text-base md:text-lg max-w-xl mx-auto mb-8">
           Open for entry-level AI/ML Engineer and Software Engineer roles, machine learning projects, and full-stack web initiatives.
         </p>
 
         {/* Direct Contact Badges */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-12 font-mono text-xs text-slate-300">
+        <div className="flex flex-wrap items-center justify-center gap-4 mb-12 font-mono text-xs text-[var(--text-secondary)]">
           <a
             href="mailto:sanketchute17@gmail.com"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 border border-slate-800 hover:border-orange-500/50 hover:text-orange-400 transition-all duration-200 shadow-lg"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-primary)] hover:border-orange-500/50 hover:text-orange-400 transition-all duration-200 shadow-lg"
           >
             <Mail className="w-3.5 h-3.5 text-orange-400" />
             sanketchute17@gmail.com
@@ -43,60 +43,60 @@ export function ContactSection() {
 
           <a
             href="tel:+919309054279"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 border border-slate-800 hover:border-orange-500/50 hover:text-orange-400 transition-all duration-200 shadow-lg"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-primary)] hover:border-orange-500/50 hover:text-orange-400 transition-all duration-200 shadow-lg"
           >
             <Phone className="w-3.5 h-3.5 text-cyan-400" />
             +91 9309054279
           </a>
 
-          <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-300 font-semibold shadow-lg">
+          <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 font-semibold shadow-lg">
             <MapPin className="w-3.5 h-3.5 text-orange-400" />
             Nagpur (Open to Relocation)
           </span>
         </div>
 
         {submitted ? (
-          <div className="p-8 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-300 font-medium max-w-xl mx-auto flex items-center justify-center gap-3">
+          <div className="p-8 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-400 font-medium max-w-xl mx-auto flex items-center justify-center gap-3">
             <CheckCircle2 className="w-6 h-6 text-orange-400" />
             Thank you for reaching out! Your message has been sent directly to Sanket.
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-6 text-left max-w-xl mx-auto bg-slate-900/90 backdrop-blur-xl p-8 rounded-3xl border border-slate-800 shadow-2xl">
+          <form onSubmit={handleSubmit} className="space-y-6 text-left max-w-xl mx-auto bg-[var(--card-bg)] backdrop-blur-xl p-8 rounded-3xl border border-[var(--border-color)] shadow-2xl">
             <div>
-              <label htmlFor="name" className="block text-xs font-mono font-medium text-slate-400 uppercase mb-2">
+              <label htmlFor="name" className="block text-xs font-mono font-medium text-[var(--text-secondary)] uppercase mb-2">
                 Your Name
               </label>
               <input
                 type="text"
                 id="name"
                 required
-                className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 placeholder-slate-500 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all text-sm"
+                className="w-full px-4 py-3 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-color)] text-[var(--text-primary)] placeholder-slate-500 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all text-sm"
                 placeholder="Jane Doe"
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-xs font-mono font-medium text-slate-400 uppercase mb-2">
+              <label htmlFor="email" className="block text-xs font-mono font-medium text-[var(--text-secondary)] uppercase mb-2">
                 Email Address
               </label>
               <input
                 type="email"
                 id="email"
                 required
-                className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 placeholder-slate-500 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all text-sm"
+                className="w-full px-4 py-3 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-color)] text-[var(--text-primary)] placeholder-slate-500 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all text-sm"
                 placeholder="jane@company.com"
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-xs font-mono font-medium text-slate-400 uppercase mb-2">
+              <label htmlFor="message" className="block text-xs font-mono font-medium text-[var(--text-secondary)] uppercase mb-2">
                 Project / Role Details
               </label>
               <textarea
                 id="message"
                 rows={4}
                 required
-                className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 placeholder-slate-500 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all text-sm"
+                className="w-full px-4 py-3 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-color)] text-[var(--text-primary)] placeholder-slate-500 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all text-sm"
                 placeholder="Tell me about your product or role..."
               ></textarea>
             </div>

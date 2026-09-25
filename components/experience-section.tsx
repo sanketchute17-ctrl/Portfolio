@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { ExperienceCard, ExperienceData } from './ui/experience-card';
-import { Briefcase, Milestone } from 'lucide-react';
+import { Milestone } from 'lucide-react';
 
 const experiences: ExperienceData[] = [
   {
@@ -56,25 +56,25 @@ const experiences: ExperienceData[] = [
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="py-24 md:py-36 bg-slate-950 text-slate-100 border-t border-slate-800/80 relative z-10 overflow-hidden">
+    <section id="experience" className="py-24 md:py-36 border-t border-[var(--border-color)] relative z-10 overflow-hidden bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-500">
       
       {/* Ambient Radial Glow */}
-      <div className="absolute top-1/3 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 right-0 w-96 h-96 bg-[var(--accent-cyan)]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
           <div>
-            <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-widest text-orange-400 bg-orange-500/10 border border-orange-500/20 mb-4">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-widest text-[var(--accent-orange)] bg-[var(--accent-orange)]/10 border border-[var(--accent-orange)]/20 mb-4">
               <Milestone className="w-3.5 h-3.5" />
               03 // Career &amp; Internships
             </span>
-            <h2 className="font-sans text-3xl md:text-5xl font-extrabold text-slate-100 tracking-tight">
+            <h2 className="font-sans text-3xl md:text-5xl font-extrabold text-[var(--text-primary)] tracking-tight">
               Internship &amp; Experience.
             </h2>
           </div>
-          <p className="font-mono text-xs text-slate-400 uppercase tracking-widest mt-4 md:mt-0">
+          <p className="font-mono text-xs text-[var(--text-muted)] uppercase tracking-widest mt-4 md:mt-0">
             [ Verified Industry &amp; Academic Milestones ]
           </p>
         </div>
