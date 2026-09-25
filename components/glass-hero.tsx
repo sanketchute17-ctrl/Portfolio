@@ -228,21 +228,31 @@ export function GlassHero() {
           </h1>
         </div>
 
-        {/* Bottom Left Supporting Copy & Secondary CTA */}
-        <div className="mt-auto pt-48 md:pt-0 max-w-md animate-sub-text pointer-events-auto">
-          <p className="text-sm md:text-base font-normal leading-relaxed mb-6 transition-colors duration-500 text-[var(--text-secondary)]">
-            B.Tech AI Engineer building intelligent machine learning systems, Gemini AI campus apps, and automated placement management tools.
-          </p>
+        {/* Bottom Bar Container: Left Bio/CTA & Right Micro Badge */}
+        <div className="mt-auto pt-48 md:pt-0 w-full flex flex-col md:flex-row items-start md:items-end justify-between gap-6 pointer-events-auto animate-sub-text">
+          {/* Bottom Left Supporting Copy & Pill Button CTA */}
+          <div className="max-w-md">
+            <p className="text-sm md:text-base font-normal leading-relaxed mb-6 transition-colors duration-500 text-[var(--text-secondary)]">
+              I build useful products, experiment with emerging AI/ML technology, and turn intelligent data pipelines into scalable systems worth sharing.
+            </p>
 
-          <Link
-            href="#work"
-            className="inline-flex items-center space-x-3 text-xs md:text-sm font-bold tracking-wider uppercase group focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-orange)] rounded p-1 text-[var(--accent-orange)] hover:opacity-90"
-          >
-            <span className="border-b-2 border-[var(--accent-orange)] group-hover:border-[var(--accent-amber)] transition-colors pb-0.5">
-              Explore my work
-            </span>
-            <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-[var(--accent-orange)]" />
-          </Link>
+            <Link
+              href="#work"
+              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[var(--text-primary)] text-[var(--bg-primary)] font-sans font-bold text-xs md:text-sm tracking-wide uppercase transition-all duration-200 shadow-xl hover:scale-[1.03] hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-orange-500"
+            >
+              <span>Explore my work</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          {/* Bottom Right Micro Tech Badge */}
+          <div className="hidden md:block text-right font-mono text-[11px] lg:text-xs uppercase tracking-widest text-[var(--text-secondary)] opacity-85 leading-snug">
+            <span>BUILDING THE</span>
+            <br />
+            <span className="text-[var(--accent-orange)] font-bold">NEXT VERSION</span>
+            <br />
+            <span>IN PUBLIC</span>
+          </div>
         </div>
 
       </div>

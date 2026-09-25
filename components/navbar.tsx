@@ -27,17 +27,27 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-        {/* Brand / Logo */}
+        {/* Brand / Logo with SC Monogram Icon */}
         <Link
           href="/"
-          className="group flex items-center space-x-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-lg p-1"
+          className="group flex items-center space-x-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-lg p-1"
         >
-          <span className={`font-sans text-xs md:text-sm font-extrabold tracking-widest uppercase transition-colors ${
-            theme === 'dark' ? 'text-slate-100 group-hover:text-orange-400' : 'text-slate-950 group-hover:text-orange-600'
-          }`}>
-            SANKET CHUTE
-          </span>
-          <span className="inline-block w-2 h-2 rounded-full bg-orange-500 animate-pulse shadow-md shadow-orange-500/50"></span>
+          {/* SC Monogram Icon */}
+          <div className="w-8 h-8 rounded-xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-400 group-hover:scale-105 group-hover:border-orange-500/60 transition-all shadow-sm">
+            <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M7 4h10v2.5H9.5v3h7.5V12H9.5v3H17V17.5H7V4zm9.5 13.5v2.5H4V17.5h12.5z" opacity="0.9" />
+              <path d="M12 2L4 6v12l8 4 8-4V6l-8-4zm6 15.5l-6 3-6-3V7.5l6-3 6 3v10z" />
+            </svg>
+          </div>
+
+          <div className="flex items-center space-x-2">
+            <span className={`font-sans text-xs md:text-sm font-extrabold tracking-widest uppercase transition-colors ${
+              theme === 'dark' ? 'text-slate-100 group-hover:text-orange-400' : 'text-slate-950 group-hover:text-orange-600'
+            }`}>
+              SANKET CHUTE
+            </span>
+            <span className="inline-block w-2 h-2 rounded-full bg-orange-500 animate-pulse shadow-md shadow-orange-500/50"></span>
+          </div>
         </Link>
 
         {/* Desktop Nav Links */}

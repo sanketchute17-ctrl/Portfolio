@@ -148,6 +148,45 @@ export function CosmicHeroBackground() {
       ctx.fillStyle = bgGrad;
       ctx.fillRect(0, 0, width, height);
 
+      // 2b. Tech Grid & Circular Vector Arc Overlay (Reference visual style)
+      ctx.save();
+      const gridStep = 90;
+      const gridAlpha = t > 0.5 ? 0.06 : 0.08;
+      ctx.strokeStyle = interpolateColor([148, 163, 184], [51, 65, 85], t, gridAlpha);
+      ctx.lineWidth = 0.7;
+
+      // Draw vertical grid lines
+      for (let x = gridStep; x < width; x += gridStep) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, height);
+        ctx.stroke();
+      }
+
+      // Draw horizontal grid lines
+      for (let y = gridStep; y < height; y += gridStep) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y);
+        ctx.stroke();
+      }
+
+      // Large Circular Vector Arcs
+      const arcCenterX = width * 0.45;
+      const arcCenterY = height * 0.45;
+      ctx.strokeStyle = interpolateColor([168, 85, 247], [249, 115, 22], t, gridAlpha * 1.5);
+      ctx.lineWidth = 1.0;
+
+      ctx.beginPath();
+      ctx.arc(arcCenterX, arcCenterY, Math.min(width, height) * 0.42, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(arcCenterX, arcCenterY, Math.min(width, height) * 0.65, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.restore();
+
       const { cx, cy } = getPortalCenter();
 
       // 3. Render Central Energy Portal (Bottom-Center)
