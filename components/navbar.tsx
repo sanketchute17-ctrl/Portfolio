@@ -27,26 +27,42 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-        {/* Brand / Logo with SC Monogram Icon */}
+        {/* Top-Left Brand Logo: Big Standalone Custom SC Monogram Badge */}
         <Link
           href="/"
-          className="group flex items-center space-x-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-lg p-1"
+          className="group flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-2xl"
+          aria-label="Sanket Chute Home"
         >
-          {/* SC Monogram Icon */}
-          <div className="w-8 h-8 rounded-xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-400 group-hover:scale-105 group-hover:border-orange-500/60 transition-all shadow-sm">
-            <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-              <path d="M7 4h10v2.5H9.5v3h7.5V12H9.5v3H17V17.5H7V4zm9.5 13.5v2.5H4V17.5h12.5z" opacity="0.9" />
-              <path d="M12 2L4 6v12l8 4 8-4V6l-8-4zm6 15.5l-6 3-6-3V7.5l6-3 6 3v10z" />
+          <div className="w-11 h-11 md:w-12 md:h-12 rounded-2xl bg-[var(--card-bg)] border border-[var(--border-color)] flex items-center justify-center text-orange-400 group-hover:scale-105 group-hover:border-orange-500/80 group-hover:shadow-lg group-hover:shadow-orange-500/20 transition-all duration-300 backdrop-blur-xl relative overflow-hidden">
+            {/* Ambient Background Glow inside badge */}
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-amber-500/5 to-cyan-500/10 opacity-70 group-hover:opacity-100 transition-opacity" />
+            
+            {/* Custom Stylized SC Monogram Vector */}
+            <svg className="w-6 h-6 md:w-7 md:h-7 relative z-10" viewBox="0 0 40 40" fill="none">
+              {/* Outer Hex/Circle Accent Ring */}
+              <circle cx="20" cy="20" r="18" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 3" opacity="0.3" />
+              
+              {/* Interlocking 'S' path */}
+              <path
+                d="M24 13C24 11.3431 22.21 10 20 10C17.79 10 16 11.3431 16 13C16 16C24 15.5 24 19.5 24 22.5C24 24.5 22 26 20 26C17.5 26 15.5 24.5 15.5 22.5"
+                stroke="currentColor"
+                strokeWidth="2.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              
+              {/* Interlocking 'C' path */}
+              <path
+                d="M27.5 16C26 14.2 23.5 13 20.5 13C15.5 13 12 16.5 12 21.5C12 26.5 15.5 30 20.5 30C23.5 30 26 28.8 27.5 27"
+                stroke="#06b6d4"
+                strokeWidth="2.4"
+                strokeLinecap="round"
+                opacity="0.9"
+              />
+              
+              {/* Center Dot Accent */}
+              <circle cx="20" cy="20" r="1.8" fill="#f97316" />
             </svg>
-          </div>
-
-          <div className="flex items-center space-x-2">
-            <span className={`font-sans text-xs md:text-sm font-extrabold tracking-widest uppercase transition-colors ${
-              theme === 'dark' ? 'text-slate-100 group-hover:text-orange-400' : 'text-slate-950 group-hover:text-orange-600'
-            }`}>
-              SANKET CHUTE
-            </span>
-            <span className="inline-block w-2 h-2 rounded-full bg-orange-500 animate-pulse shadow-md shadow-orange-500/50"></span>
           </div>
         </Link>
 
