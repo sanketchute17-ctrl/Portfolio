@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { Workflow } from 'lucide-react';
 
 const steps = [
   {
@@ -22,28 +23,33 @@ const steps = [
 
 export function ProcessSection() {
   return (
-    <section id="process" className="py-24 md:py-36 bg-slate-50 border-t border-slate-200/40 relative z-10">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section id="process" className="py-24 md:py-36 bg-slate-950 text-slate-100 border-t border-slate-800/80 relative z-10 overflow-hidden">
+      
+      {/* Ambient Glow */}
+      <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-2xl mb-16">
-          <span className="font-mono text-xs font-semibold uppercase tracking-widest text-orange-600 block mb-3">
-            03 // Methodology
+          <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-widest text-orange-400 bg-orange-500/10 border border-orange-500/20 mb-4">
+            <Workflow className="w-3.5 h-3.5" />
+            06 // Methodology
           </span>
-          <h2 className="font-sans text-3xl md:text-5xl font-extrabold text-slate-950 tracking-tight">
+          <h2 className="font-sans text-3xl md:text-5xl font-extrabold text-slate-100 tracking-tight">
             How The Reveal Works.
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step, idx) => (
-            <div key={idx} className="p-8 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col justify-between">
+            <div key={idx} className="p-8 rounded-2xl bg-slate-900/90 border border-slate-800 backdrop-blur-xl flex flex-col justify-between shadow-xl hover:border-slate-700 transition-all duration-300">
               <div>
-                <span className="font-mono text-2xl font-bold text-orange-500 block mb-4">
+                <span className="font-mono text-3xl font-extrabold text-orange-400 block mb-4">
                   {step.num}
                 </span>
-                <h3 className="font-sans text-xl font-bold text-slate-900 mb-3">
+                <h3 className="font-sans text-xl font-bold text-slate-100 mb-3">
                   {step.title}
                 </h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
+                <p className="text-slate-400 text-sm leading-relaxed">
                   {step.body}
                 </p>
               </div>

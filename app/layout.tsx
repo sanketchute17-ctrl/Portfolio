@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { SpiderCursor } from '@/components/ui/spider-cursor';
 
 export const metadata: Metadata = {
   title: 'Sanket Chute | AI/ML Engineer & Full-Stack Developer',
@@ -20,7 +21,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
       </head>
-      <body className="min-h-screen bg-slate-50 text-slate-900 antialiased selection:bg-orange-100 selection:text-orange-950">
+      <body className="min-h-screen bg-slate-950 text-slate-100 antialiased selection:bg-orange-500 selection:text-slate-950">
+        <SpiderCursor />
         {children}
       </body>
     </html>

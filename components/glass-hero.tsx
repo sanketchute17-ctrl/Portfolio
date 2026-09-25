@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { ArrowRight, Sparkles } from 'lucide-react';
 
 export function GlassHero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -138,10 +139,14 @@ export function GlassHero() {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       onTouchCancel={handleTouchEnd}
-      className="relative w-full min-h-[100svh] overflow-hidden bg-slate-50 select-none animate-hero-entry z-10"
+      className="relative w-full min-h-[100svh] overflow-hidden bg-slate-950 text-slate-100 select-none animate-hero-entry z-10"
       aria-label="Liquid Glass Interactive Hero"
     >
-      {/* Background Image Layer 1: Base Image (Perfectly Proportioned & Aligned) */}
+      {/* Ambient Radial Background Glows */}
+      <div className="absolute top-1/4 left-10 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+
+      {/* Background Image Layer 1: Base Image */}
       <div className="absolute inset-0 w-full h-full pointer-events-none flex items-end justify-center md:justify-end z-10 pt-16 md:pt-20">
         <div className="w-full h-full max-h-[85vh] md:max-h-[88vh] lg:max-h-[92vh] flex items-end justify-center md:justify-end transform scale-100 md:scale-105 lg:scale-108 origin-bottom md:origin-bottom-right">
           <picture className="h-full w-full flex items-end justify-center md:justify-end">
@@ -172,8 +177,8 @@ export function GlassHero() {
         </div>
       </div>
 
-      {/* Ambient gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-50/70 via-slate-50/20 to-transparent pointer-events-none z-20 md:w-3/5" />
+      {/* Dark Ambient Gradient Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent pointer-events-none z-20 md:w-3/5" />
 
       {/* Hero Content Overlay */}
       <div className="relative z-30 min-h-[100svh] w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col justify-between pt-28 pb-12 pointer-events-none">
@@ -182,15 +187,20 @@ export function GlassHero() {
         <div
           className="absolute left-[max(5.6vw,1.5rem)] top-[34%] transform -translate-y-1/2 max-w-2xl pointer-events-auto"
         >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-widest text-orange-400 bg-orange-500/10 border border-orange-500/20 mb-6 backdrop-blur-md">
+            <Sparkles className="w-3.5 h-3.5 text-orange-400" />
+            AI/ML Engineer &amp; Full-Stack Lead
+          </div>
+
           <h1
-            className="font-sans font-extrabold tracking-tight text-slate-950 uppercase leading-[0.93]"
+            className="font-sans font-extrabold tracking-tight text-slate-100 uppercase leading-[0.93]"
             style={{
               fontSize: 'clamp(3.8rem, 6.2vw, 6.8rem)',
               letterSpacing: '-0.075em',
             }}
           >
             <span className="block animate-line-1">BUILDING</span>
-            <span className="block animate-line-2 text-transparent bg-clip-text bg-gradient-to-r from-slate-950 via-orange-600 to-amber-500">
+            <span className="block animate-line-2 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">
               INTELLIGENT
             </span>
             <span className="block animate-line-3">PRODUCTS.</span>
@@ -199,24 +209,17 @@ export function GlassHero() {
 
         {/* Bottom Left Supporting Copy & Secondary CTA */}
         <div className="mt-auto pt-48 md:pt-0 max-w-md animate-sub-text pointer-events-auto">
-          <p className="text-sm md:text-base text-slate-600 font-normal leading-relaxed mb-6">
+          <p className="text-sm md:text-base text-slate-300 font-normal leading-relaxed mb-6">
             B.Tech AI Engineer building intelligent machine learning systems, Gemini AI campus apps, and automated placement management tools.
           </p>
           <Link
             href="#work"
-            className="inline-flex items-center space-x-3 text-xs md:text-sm font-bold tracking-wider text-slate-950 uppercase group focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded p-1"
+            className="inline-flex items-center space-x-3 text-xs md:text-sm font-bold tracking-wider text-orange-400 hover:text-orange-300 uppercase group focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded p-1"
           >
-            <span className="border-b-2 border-slate-950 group-hover:border-orange-500 transition-colors pb-0.5">
+            <span className="border-b-2 border-orange-400 group-hover:border-orange-300 transition-colors pb-0.5">
               Explore my work
             </span>
-            <svg
-              className="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-orange-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
+            <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-orange-400" />
           </Link>
         </div>
 

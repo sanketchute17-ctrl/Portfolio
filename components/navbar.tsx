@@ -18,7 +18,7 @@ export function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'py-3 bg-white/80 backdrop-blur-md border-b border-slate-200/80 shadow-xs'
+          ? 'py-3 bg-slate-950/85 backdrop-blur-xl border-b border-slate-800/80 shadow-2xl'
           : 'py-6 bg-transparent'
       }`}
     >
@@ -28,47 +28,47 @@ export function Navbar() {
           href="/"
           className="group flex items-center space-x-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-lg p-1"
         >
-          <span className="font-sans text-xs md:text-sm font-extrabold tracking-widest text-slate-950 uppercase">
+          <span className="font-sans text-xs md:text-sm font-extrabold tracking-widest text-slate-100 uppercase group-hover:text-orange-400 transition-colors">
             SANKET CHUTE
           </span>
-          <span className="inline-block w-2 h-2 rounded-full bg-orange-500 animate-pulse shadow-sm shadow-orange-500/50"></span>
+          <span className="inline-block w-2 h-2 rounded-full bg-orange-500 animate-pulse shadow-md shadow-orange-500/50"></span>
         </Link>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center space-x-8 text-xs lg:text-sm font-medium tracking-wide text-slate-600">
+        <nav className="hidden md:flex items-center space-x-8 text-xs lg:text-sm font-medium tracking-wide text-slate-300">
           <Link
             href="#about"
-            className="hover:text-orange-600 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded px-1"
+            className="hover:text-orange-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded px-1"
           >
             About
           </Link>
           <Link
             href="#work"
-            className="hover:text-orange-600 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded px-1"
+            className="hover:text-orange-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded px-1"
           >
             Work
           </Link>
           <Link
             href="#experience"
-            className="hover:text-orange-600 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded px-1"
+            className="hover:text-orange-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded px-1"
           >
             Experience
           </Link>
           <Link
             href="#certifications"
-            className="hover:text-orange-600 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded px-1"
+            className="hover:text-orange-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded px-1"
           >
             Certifications
           </Link>
           <Link
             href="#skills"
-            className="hover:text-orange-600 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded px-1"
+            className="hover:text-orange-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded px-1"
           >
             Skills
           </Link>
           <Link
             href="#process"
-            className="hover:text-orange-600 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded px-1"
+            className="hover:text-orange-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded px-1"
           >
             Process
           </Link>
@@ -78,7 +78,7 @@ export function Navbar() {
         <div>
           <Link
             href="#contact"
-            className="inline-flex items-center justify-center min-h-[44px] px-5 py-2 text-xs md:text-sm font-bold tracking-wide text-slate-950 bg-orange-500/10 hover:bg-orange-500 hover:text-white border border-orange-500/30 rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 shadow-xs"
+            className="inline-flex items-center justify-center min-h-[44px] px-5 py-2 text-xs md:text-sm font-bold tracking-wide text-slate-950 bg-orange-500 hover:bg-orange-400 border border-orange-400/40 rounded-full transition-all duration-200 shadow-lg shadow-orange-500/20"
           >
             Let&apos;s Talk
           </Link>

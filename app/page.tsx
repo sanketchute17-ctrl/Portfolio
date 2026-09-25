@@ -14,7 +14,7 @@ import { DataStreamBg } from '@/components/data-stream-bg';
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-slate-50/90">
+    <main className="relative min-h-screen bg-slate-950 text-slate-100 selection:bg-orange-500 selection:text-slate-950">
       <DataStreamBg />
       <Navbar />
       <GlassHero />
